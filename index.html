@@ -17,17 +17,53 @@
         <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
     </head>
 
-    <body>
+    <body ng-app="App">
         <section id="sidebar">
-            <menu id="search"></menu>
-            <section id="events"></section>
-            <section id="controls"></section>
-            <section id="status"></section>
+
+            <menu id="search">
+                <section id="tabs">
+                    <nav class="tab active" id="artist">By artist</nav>
+                    <nav class="tab" id="city">By city</nav>
+                </section>
+                <input class="search-field" placeholder="Enter artist..">            
+                <section id="autocomplete"></section>
+                <section id="tags"></section>
+                <a class="search-button">Search</a>
+                <a class="festivals" title="Festivals only">F</a>
+            </menu>
+
+            <section id="events">
+                <img src="" class="artist-pic" />
+                <div class="artist-data">
+                <%= (new Date(date)).toLocaleDateString('ru-RU') %><div class="save-event">Иду</div><br/>
+                <%= artists.headliner %><br/><br/>
+                <%= venue.name %><br/>
+                <%= venue.location.city %> <%= venue.location.country %><br/>
+                </div>
+            </section>
+
+            <section id="controls">
+                <a id="slide">Slide</a>
+                <a id="markers" class="layers active"><b>markers</b></a>
+                <a id="paths" class="layers active"><b>paths</b></a>
+                <a id="go-top"><b>^</b></a>
+                <div id="date-selector">Date</div>
+                <section id="date">
+                    <section id="years"></section>
+                    <section id="months"></section>
+                    <section id="days"></section>          
+                </section>
+            </section>
+
+            <section id="status">
+                
+            </section>
+
         </section>
 
         <dialog id="notification"></dialog>
         <section id="event-detail"></section>
-        <section id="map"></section>
+        <section id="map" ng-controller="MapController" ng-init="init()"></section>
 
         <script src="../js/lib/require-min.js" data-main="../js/main.js"></script>
     </body>

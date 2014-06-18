@@ -1,5 +1,10 @@
-requirejs.config({
+'use strict';
+
+require.config({
 	shim: {
+		angular: {
+			exports: 'angular'
+		},
 		jquery: {
 			exports: '$',
 		},
@@ -11,7 +16,7 @@ requirejs.config({
 	},
 
 	paths: {
-		angular		: 'lib/angular',
+		angular		: 'lib/angular.min',
 		jquery 		: 'lib/jquery.min', //'http://code.jquery.com/jquery-latest.min',
 		mapbox 		: 'lib/mapbox', //'https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox',
 		cluster 	: 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster',
@@ -20,8 +25,6 @@ requirejs.config({
 	}
 });
 
-requirejs(['App'], function(App) {
-	'use strict';
-
-	return angular.module('App', []);
+require(['App', 'controllers/MapController'], function(App, MapController) {
+	
 });
