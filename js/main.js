@@ -5,9 +5,6 @@ require.config({
 		angular: {
 			exports: 'angular'
 		},
-		jquery: {
-			exports: '$',
-		},
 		cluster: {
 			deps: [
 				'mapbox'
@@ -16,15 +13,14 @@ require.config({
 	},
 
 	paths: {
-		angular		: 'lib/angular.min',
-		jquery 		: 'lib/jquery.min', //'http://code.jquery.com/jquery-latest.min',
-		mapbox 		: 'lib/mapbox', //'https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox',
-		cluster 	: 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster',
-		scrollbar   : 'lib/scrollbar.min',
-		mousewheel  : 'lib/jquery.mousewheel'
+		angular		    : 'lib/angular.min',
+		mapbox 		    : 'lib/mapbox', //'https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox',
+		cluster 	    : 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster',
+		scrollbar       : 'lib/scrollbar.min',
+		mousewheel      : 'lib/jquery.mousewheel'
 	}
 });
 
-require(['App', 'controllers/MapController'], function(App, MapController) {
+require(['App', 'controllers/MapController', 'controllers/MenuController'], function(App, MapController, MenuController) {
 	
 });

@@ -15,6 +15,10 @@ define(['App', 'mapbox'], function(App) {
 			}).setView([0, 0], 2).zoomControl.setPosition('bottomright');
 		};
 
+		$scope.cluster = function() {
+
+		};
+
 	}]);
 
 });

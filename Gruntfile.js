@@ -40,7 +40,7 @@ module.exports = function (grunt) {
 					'compress': true
 				},
 				files: {
-					'public/css/styles.css': ['<%= styles %>']
+					'css/styles.css': ['<%= styles %>']
 				}
 			}
 		},

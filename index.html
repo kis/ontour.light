@@ -20,14 +20,25 @@
     <body ng-app="App">
         <section id="sidebar">
 
-            <menu id="search">
+            <menu id="search" ng-controller="MenuController">
                 <section id="tabs">
-                    <nav class="tab active" id="artist">By artist</nav>
-                    <nav class="tab" id="city">By city</nav>
+                    <nav ng-click="switchTab('artist')" 
+                         ng-class="{'active' : menu.activeTab === 'artist'}" 
+                         class="tab">By artist
+                    </nav>
+                    <nav ng-click="switchTab('city')" 
+                         ng-class="{'active' : menu.activeTab === 'city'}" 
+                         class="tab">By city
+                    </nav>
                 </section>
-                <input class="search-field" placeholder="Enter artist..">            
+
+                <input class="search-field" placeholder="Enter {{menu.activeTab}}..">            
                 <section id="autocomplete"></section>
-                <section id="tags"></section>
+                
+                <section id="tags" ng-show="menu.activeTab === 'city'">
+                    <div class="tag" ng-repeat="tag in menu.tags">{{tag}}</div>
+                </section>
+                
                 <a class="search-button">Search</a>
                 <a class="festivals" title="Festivals only">F</a>
             </menu>
