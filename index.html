@@ -22,25 +22,37 @@
 
             <menu id="search" ng-controller="MenuController">
                 <section id="tabs">
-                    <nav ng-click="switchTab('artist')" 
-                         ng-class="{'active' : menu.activeTab === 'artist'}" 
-                         class="tab">By artist
-                    </nav>
-                    <nav ng-click="switchTab('city')" 
-                         ng-class="{'active' : menu.activeTab === 'city'}" 
-                         class="tab">By city
+                    <nav ng-repeat="tab in menu.tabs"
+                         ng-click="switchTab(tab)" 
+                         ng-class="{'active' : menu.activeTab === tab}" 
+                         class="tab">{{tab}}
                     </nav>
                 </section>
 
                 <input class="search-field" placeholder="Enter {{menu.activeTab}}..">            
-                <section id="autocomplete"></section>
+                
+                <section id="autocomplete">
+                    <div ng-repeat="item in menu.autocompleteItems"
+                         ng-click="search(item)"
+                         ng-hover="selectItem(item)"
+                         ng-class="{'active' : menu.activeItem === item}"><a>{{item.title}}</a>{{item.meta}}                   
+                    </div>
+                </section>
                 
                 <section id="tags" ng-show="menu.activeTab === 'city'">
-                    <div class="tag" ng-repeat="tag in menu.tags">{{tag}}</div>
+                    <div ng-repeat="tag in menu.tags"
+                         ng-click="switchTag(tag)" 
+                         ng-class="{'active' : menu.activeTag === tag}"
+                         class="tag">{{tag}}
+                    </div>
                 </section>
                 
                 <a class="search-button">Search</a>
-                <a class="festivals" title="Festivals only">F</a>
+
+                <a title="Festivals only" 
+                   ng-click="setFestivalsOnly()"
+                   ng-class="{'active' : menu.festivalsOnly === true}"
+                   class="festivals">F</a>
             </menu>
 
             <section id="events">
