@@ -47,7 +47,7 @@
                     </div>
                 </section>
                 
-                <a class="search-button">Search</a>
+                <a class="search-button" ng-click="search()">Search</a>
 
                 <a title="Festivals only" 
                    ng-click="setFestivalsOnly()"
@@ -55,13 +55,18 @@
                    class="festivals">F</a>
             </menu>
 
-            <section id="events">
-                <img src="" class="artist-pic" />
-                <div class="artist-data">
-                <%= (new Date(date)).toLocaleDateString('ru-RU') %><div class="save-event">Иду</div><br/>
-                <%= artists.headliner %><br/><br/>
-                <%= venue.name %><br/>
-                <%= venue.location.city %> <%= venue.location.country %><br/>
+            <section id="events" ng-controller="EventController">
+                <div id="event-item" 
+                     ng-repeat="event in events"
+                     ng-click="selectEvent(event)" 
+                     ng-class="{'active' : activeEvent === event}">
+                     <img src="" class="artist-pic" />
+                     <div class="artist-data">
+                         (new Date({{event.date}})).toLocaleDateString('ru-RU')<div class="save-event">Иду</div><br/>
+                         {{event.artists.headliner}}<br/><br/>
+                         {{event.venue.name}}<br/>
+                         {{event.venue.location.city}} {{event.venue.location.country}}<br/>
+                     </div>                     
                 </div>
             </section>
 
