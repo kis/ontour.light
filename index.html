@@ -29,7 +29,10 @@
                     </nav>
                 </section>
 
-                <input class="search-field" placeholder="Enter {{menu.activeTab}}..">            
+                <input class="search-field" 
+                       placeholder="Enter {{menu.activeTab}}.." 
+                       ng-model="menu.searchValue"
+                       ng-keydown="getAutocompleteData(menu.searchValue)">          
                 
                 <section id="autocomplete">
                     <div ng-repeat="item in menu.autocompleteItems"

@@ -2,11 +2,11 @@
 
 define(['App'], function(App) {
 
-	App.controller('MenuController', ['$scope', function($scope) {
+	App.controller('MenuController', ['$scope', 'AutocompleteService', function($scope, AutocompleteService) {
 
 		$scope.menu = {
 			activeTab: 'artist',
-			value: '',
+			searchValue: '',
 			param: 'artist',
 			activeTag: '',
 			festivalsOnly: false
@@ -25,6 +25,63 @@ define(['App'], function(App) {
 		};
 
 		$scope.menu.autocompleteItems = [];
+
+		$scope.getAutocompleteData = function(searchValue) {
+
+			$scope.menu.autocompleteItems = [];
+
+			if ($scope.menu.activeTab == 'artist') {
+				$scope.getAutocompleteArtists(searchValue);
+			} else if ($scope.menu.activeTab == 'city') {
+				$scope.getAutocompleteCities(searchValue);
+			}
+
+		};
+
+		$scope.getAutocompleteArtists = function(artist) {
+			AutocompleteService.getArtistsData(artist).success(function(data) {
+				if (typeof data.results != 'undefined') {
+
+					var res = data.results.artistmatches.artist;
+
+					if (typeof res != 'undefined' && res.length) {
+
+						$scope.menu.autocompleteItems = res;
+
+						/*res.forEach(function(value, index) {
+							self.collection.add(new AutocompleteItem({
+								title: value.name, 
+								meta: '', 
+								selected: false
+							}));
+						});*/
+					}
+				}
+			});
+		};
+
+		$scope.getAutocompleteCities = function(city) {
+			AutocompleteService.getCitiesData(city).success(function(data) {
+				console.log(angular.callbacks._0.meta);
+				// data.length = 5;
+
+				$scope.menu.autocompleteItems = data;
+
+				console.log($scope.menu.autocompleteItems);
+
+				/*data.forEach(function(value, index) {
+					if (value && typeof value != 'undefined') {
+						var res = value.split(', ');
+						self.collection.add(new AutocompleteItem({
+							title: res[0], 
+							meta: res[2], 
+							selected: false
+						}));
+					}
+				});*/
+			
+			});
+		};
 
 		$scope.setFestivalsOnly = function() {
 			$scope.menu.festivalsOnly = $scope.menu.festivalsOnly == false ? true : false;

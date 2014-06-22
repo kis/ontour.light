@@ -24,10 +24,12 @@ require.config({
 require(['App', 
 		 'controllers/MapController', 
 		 'controllers/MenuController', 
-		 'controllers/EventController'], 
+		 'controllers/EventController',
+		 'services/AutocompleteService'], 
 	function(App, 
 			 MapController, 
 			 MenuController, 
-			 EventController) {
+			 EventController,
+			 AutocompleteService) {
 	
 });
