@@ -4,8 +4,7 @@ define(['App'], function(App) {
 
 	App.factory('AutocompleteService', ['$http', function($http) {
 
-		var getArtistsData = function(artist) {
-
+		function getArtistsData(artist) {
 			return $http({
 			 	method: 'GET', 
 			 	url: 'http://ws.audioscrobbler.com/2.0/',
@@ -17,14 +16,11 @@ define(['App'], function(App) {
 			 		format: 'json'
 			 	}
 			 });
+		}
 
-		};
-
-		var getCitiesData = function(city) {
-
-			return $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?callback=cities&q="+city);
-
-		};
+		function getCitiesData(city) {
+			return $http.jsonp("http://gd.geobytes.com/AutoCompleteCity?callback=JSON_CALLBACK&q="+city);
+		}
 
 		return {
 			getArtistsData: getArtistsData,

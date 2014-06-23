@@ -27,7 +27,6 @@ define(['App'], function(App) {
 		$scope.menu.autocompleteItems = [];
 
 		$scope.getAutocompleteData = function(searchValue) {
-
 			$scope.menu.autocompleteItems = [];
 
 			if ($scope.menu.activeTab == 'artist') {
@@ -35,26 +34,15 @@ define(['App'], function(App) {
 			} else if ($scope.menu.activeTab == 'city') {
 				$scope.getAutocompleteCities(searchValue);
 			}
-
 		};
 
 		$scope.getAutocompleteArtists = function(artist) {
 			AutocompleteService.getArtistsData(artist).success(function(data) {
 				if (typeof data.results != 'undefined') {
-
 					var res = data.results.artistmatches.artist;
 
 					if (typeof res != 'undefined' && res.length) {
-
 						$scope.menu.autocompleteItems = res;
-
-						/*res.forEach(function(value, index) {
-							self.collection.add(new AutocompleteItem({
-								title: value.name, 
-								meta: '', 
-								selected: false
-							}));
-						});*/
 					}
 				}
 			});
@@ -62,24 +50,19 @@ define(['App'], function(App) {
 
 		$scope.getAutocompleteCities = function(city) {
 			AutocompleteService.getCitiesData(city).success(function(data) {
-				console.log(angular.callbacks._0.meta);
-				// data.length = 5;
+				if (data.length) {
+					$scope.menu.autocompleteItems = [];
+					data.length = 5;
 
-				$scope.menu.autocompleteItems = data;
-
-				console.log($scope.menu.autocompleteItems);
-
-				/*data.forEach(function(value, index) {
-					if (value && typeof value != 'undefined') {
+					data.forEach(function(value) {
 						var res = value.split(', ');
-						self.collection.add(new AutocompleteItem({
-							title: res[0], 
-							meta: res[2], 
-							selected: false
-						}));
-					}
-				});*/
-			
+						
+						$scope.menu.autocompleteItems.push({
+							name: res[0], 
+							meta: res[2]
+						});
+					});
+				}
 			});
 		};
 

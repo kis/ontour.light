@@ -38,7 +38,7 @@
                     <div ng-repeat="item in menu.autocompleteItems"
                          ng-click="search(item)"
                          ng-hover="selectItem(item)"
-                         ng-class="{'active' : menu.activeItem === item}"><a>{{item.title}}</a>{{item.meta}}                   
+                         ng-class="{'active' : menu.activeItem === item}"><a>{{item.name}}</a> {{item.meta}}                   
                     </div>
                 </section>
                 
