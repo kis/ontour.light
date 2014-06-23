@@ -24,22 +24,25 @@
                 <section id="tabs">
                     <nav ng-repeat="tab in menu.tabs"
                          ng-click="switchTab(tab)" 
-                         ng-class="{'active' : menu.activeTab === tab}" 
-                         class="tab">{{tab}}
+                         ng-class="{'active' : menu.activeTab.title === tab.title}" 
+                         class="tab">{{tab.title}}
                     </nav>
                 </section>
 
-                <input class="search-field" 
-                       placeholder="Enter {{menu.activeTab}}.." 
-                       ng-model="menu.searchValue"
-                       ng-keydown="getAutocompleteData(menu.searchValue)">          
-                
-                <section id="autocomplete">
-                    <div ng-repeat="item in menu.autocompleteItems"
-                         ng-click="search(item)"
-                         ng-hover="selectItem(item)"
-                         ng-class="{'active' : menu.activeItem === item}"><a>{{item.name}}</a> {{item.meta}}                   
-                    </div>
+                <section ng-controller="AutocompleteController">
+                    <input class="search-field" 
+                           placeholder="Enter {{menu.activeTab.title}}.." 
+                           ng-model="menu.searchValue"
+                           ng-keydown="getAutocompleteData(menu.searchValue)">          
+                    
+                    <section id="autocomplete">
+                        <div ng-repeat="item in menu.autocompleteItems"
+                             ng-click="search(item.name)"
+                             ng-mouseover="selectItem(item)"
+                             ng-class="{'hover' : menu.activeItem === item}">
+                             <a>{{item.name}}</a> {{item.meta}}                 
+                        </div>
+                    </section>
                 </section>
                 
                 <section id="tags" ng-show="menu.activeTab === 'city'">

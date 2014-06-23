@@ -2,17 +2,29 @@
 
 define(['App'], function(App) {
 
-	App.controller('MenuController', ['$scope', 'AutocompleteService', function($scope, AutocompleteService) {
+	App.controller('MenuController', ['$scope', 'SearchService', function($scope, SearchService) {
 
 		$scope.menu = {
-			activeTab: 'artist',
+			activeTab: {
+				title: "artist",
+				param: "artist"
+			},
 			searchValue: '',
-			param: 'artist',
 			activeTag: '',
-			festivalsOnly: false
+			festivalsOnly: false,
+			activeItem: ''
 		};
 
-		$scope.menu.tabs = ["artist", "city"];
+		$scope.menu.tabs = [
+			{
+				title: "artist",
+				param: "artist"
+			},
+			{
+				title: "location",
+				param: "geo"
+			}
+		];
 
 		$scope.switchTab = function(tab) {
 			$scope.menu.activeTab = tab;
@@ -24,46 +36,60 @@ define(['App'], function(App) {
 			$scope.menu.activeTag = $scope.menu.activeTag == tag ? '' : tag;
 		};
 
-		$scope.menu.autocompleteItems = [];
+		$scope.pages = {
+			page: 1,
+			total: 1,
+			totalPages: 1
+		};
 
-		$scope.getAutocompleteData = function(searchValue) {
+		$scope.search = function(item) {
 			$scope.menu.autocompleteItems = [];
+			$scope.menu.searchValue = item;
 
-			if ($scope.menu.activeTab == 'artist') {
-				$scope.getAutocompleteArtists(searchValue);
-			} else if ($scope.menu.activeTab == 'city') {
-				$scope.getAutocompleteCities(searchValue);
-			}
-		};
+			(function go() {
+				SearchService.search(
+					$scope.menu.activeTab.param, 
+					$scope.menu.searchValue, 
+					$scope.menu.searchValue, 
+					$scope.menu.festivalsOnly, 
+					$scope.menu.activeTag, 
+					$scope.pages.page)
+				.success(function(response) {
+					$scope.getEvents(response, $scope.menu.activeTab.param);
 
-		$scope.getAutocompleteArtists = function(artist) {
-			AutocompleteService.getArtistsData(artist).success(function(data) {
-				if (typeof data.results != 'undefined') {
-					var res = data.results.artistmatches.artist;
+					$scope.pages.page++;
 
-					if (typeof res != 'undefined' && res.length) {
-						$scope.menu.autocompleteItems = res;
+					if ($scope.pages.page <= $scope.pages.totalPages) {
+						go();
+					} else {
+						// App.vent.trigger('addPaths');
 					}
-				}
-			});
+				});
+			}());
 		};
 
-		$scope.getAutocompleteCities = function(city) {
-			AutocompleteService.getCitiesData(city).success(function(data) {
-				if (data.length) {
-					$scope.menu.autocompleteItems = [];
-					data.length = 5;
+		$scope.getEvents = function(data, param) {
+			if (data.error == 8 || data.events.total == 0) {
+				$scope.pages.totalPages = 0;
+				return false;
+			}
 
-					data.forEach(function(value) {
-						var res = value.split(', ');
-						
-						$scope.menu.autocompleteItems.push({
-							name: res[0], 
-							meta: res[2]
-						});
-					});
-				}
-			});
+			console.log($scope.pages.page);
+
+			$scope.pages.totalPages = data.events["@attr"].totalPages;
+			$scope.pages.total = data.events["@attr"].total;
+
+			if ($scope.pages.page == $scope.pages.totalPages && /1$/.test($scope.pages.total)) {
+				// App.vent.trigger('addEvent', data.events.event);
+			} else {
+				data.events.event.forEach(function(value, index, list) {
+					// App.vent.trigger('addEvent', value);
+					
+					if ($scope.pages.page == 1 && index == 0) {
+						// App.vent.trigger('setView', list, param);
+					}
+				});
+			}
 		};
 
 		$scope.setFestivalsOnly = function() {
