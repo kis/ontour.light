@@ -30,10 +30,16 @@
                 </section>
 
                 <section ng-controller="AutocompleteController">
-                    <input class="search-field" 
-                           placeholder="Enter {{menu.activeTab.title}}.." 
-                           ng-model="menu.searchValue"
-                           ng-keydown="getAutocompleteData(menu.searchValue)">          
+                    <form name="menuForm">
+                        <input class="search-field" 
+                               ng-class="{'invalid' : menuForm.searchValue.$invalid}" 
+                               placeholder="Enter {{menu.activeTab.title}}.." 
+                               ng-model="menu.searchValue"
+                               ng-model-options="{updateOn: 'blur'}"
+                               name="searchValue"
+                               ng-minlength="5"
+                               ng-keydown="getAutocompleteData(menu.searchValue)">
+                    </form>
                     
                     <section id="autocomplete">
                         <div ng-repeat="item in menu.autocompleteItems"
