@@ -1,8 +1,8 @@
 'use strict';
 
-define(['App'], function(App) {
+define(['./module'], function(controllers) {
 
-	App.controller('EventController', ['$scope', function($scope) {
+	controllers.controller('EventController', ['$scope', function($scope) {
 
 		$scope.activeEvent = '';
 
@@ -22,7 +22,7 @@ define(['App'], function(App) {
 			filtered: true
 		};*/
 
-		$scope.events = [];
+		// $scope.events = [];
 
 	}]);
 

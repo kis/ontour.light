@@ -1,8 +1,8 @@
 'use strict';
 
-define(['App'], function(App) {
+define(['./module'], function(services) {
 
-	App.factory('AutocompleteService', ['$http', function($http) {
+	services.factory('AutocompleteService', ['$http', function($http) {
 
 		function getArtistsData(artist) {
 			return $http({

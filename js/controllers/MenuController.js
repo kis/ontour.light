@@ -1,13 +1,13 @@
 'use strict';
 
-define(['App'], function(App) {
+define(['./module', '../services/index', '../services/module'], function(controllers) {
 
-	App.controller('MenuController', ['$scope', 'SearchService', function($scope, SearchService) {
+	controllers.controller('MenuController', ['$scope', 'SearchService', function($scope, SearchService) {
 
 		$scope.menu = {
 			activeTab: {
-				title: "artist",
-				param: "artist"
+				title: 'artist',
+				param: 'artist'
 			},
 			searchValue: '',
 			activeTag: '',
@@ -17,12 +17,12 @@ define(['App'], function(App) {
 
 		$scope.menu.tabs = [
 			{
-				title: "artist",
-				param: "artist"
+				title: 'artist',
+				param: 'artist'
 			},
 			{
-				title: "location",
-				param: "geo"
+				title: 'location',
+				param: 'geo'
 			}
 		];
 
@@ -30,7 +30,7 @@ define(['App'], function(App) {
 			$scope.menu.activeTab = tab;
 		};
 
-		$scope.menu.tags = ["rock", "pop", "alternative", "indie", "electronic", "classic rock", "hip-hop", "dance", "jazz"];
+		$scope.menu.tags = ['rock', 'pop', 'alternative', 'indie', 'electronic', 'classic rock', 'hip-hop', 'dance', 'jazz'];
 
 		$scope.switchTag = function(tag) {
 			$scope.menu.activeTag = $scope.menu.activeTag == tag ? '' : tag;
@@ -68,13 +68,13 @@ define(['App'], function(App) {
 			}());
 		};
 
+		$scope.events = [];
+
 		$scope.getEvents = function(data, param) {
 			if (data.error == 8 || data.events.total == 0) {
 				$scope.pages.totalPages = 0;
 				return false;
 			}
-
-			console.log($scope.pages.page);
 
 			$scope.pages.totalPages = data.events["@attr"].totalPages;
 			$scope.pages.total = data.events["@attr"].total;
@@ -82,13 +82,20 @@ define(['App'], function(App) {
 			if ($scope.pages.page == $scope.pages.totalPages && /1$/.test($scope.pages.total)) {
 				// App.vent.trigger('addEvent', data.events.event);
 			} else {
-				data.events.event.forEach(function(value, index, list) {
+				$scope.events = data.events.event;
+
+				angular.element('#events').perfectScrollbar();
+
+				console.log($scope.events);
+
+				/*data.events.event.forEach(function(value, index, list) {
 					// App.vent.trigger('addEvent', value);
+					$scope.events.push();
 					
 					if ($scope.pages.page == 1 && index == 0) {
 						// App.vent.trigger('setView', list, param);
 					}
-				});
+				});*/
 			}
 		};
 

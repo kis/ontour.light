@@ -1,8 +1,8 @@
 'use strict';
 
-define(['App'], function(App) {
+define(['./module'], function(services) {
 
-	App.factory('SearchService', ['$http', function($http) {
+	services.factory('SearchService', ['$http', function($http) {
 
 		function search(param, location, artist, festivalsOnly, tag, page) {
 			return 	$http({

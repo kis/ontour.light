@@ -1,8 +1,8 @@
 'use strict';
 
-define(['App'], function(App) {
+define(['./module'], function(controllers) {
 
-	return App.controller('AutocompleteController', ['$scope', 'AutocompleteService', function($scope, AutocompleteService) {
+	controllers.controller('AutocompleteController', ['$scope', 'AutocompleteService', function($scope, AutocompleteService) {
 
 		$scope.menu.autocompleteItems = [];
 

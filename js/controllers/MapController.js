@@ -1,8 +1,8 @@
 'use strict';
 
-define(['App', 'mapbox'], function(App) {
+define(['./module', 'mapbox'], function(controllers) {
 
-	return App.controller('MapController', ['$scope', function($scope) {
+	controllers.controller('MapController', ['$scope', function($scope) {
 
 		/*kirillstyopkin.h29f88g0
 		zr0njcqy

@@ -18,9 +18,9 @@
     </head>
 
     <body ng-app="App">
-        <section id="sidebar">
+        <section id="sidebar" ng-controller="MenuController">
 
-            <menu id="search" ng-controller="MenuController">
+            <menu id="search">
                 <section id="tabs">
                     <nav ng-repeat="tab in menu.tabs"
                          ng-click="switchTab(tab)" 
@@ -37,9 +37,7 @@
                                ng-class="{'invalid' : menuForm.searchValue.$invalid}" 
                                placeholder="Enter {{menu.activeTab.title}}.." 
                                ng-model="menu.searchValue"
-                               ng-model-options="{updateOn: 'blur'}"
                                name="searchValue"
-                               ng-minlength="5"
                                ng-cloak
                                ng-keydown="getAutocompleteData(menu.searchValue)">
                     </form>
@@ -49,8 +47,8 @@
                              ng-cloak
                              ng-click="search(item.name)"
                              ng-mouseover="selectItem(item)"
-                             ng-class="{'hover' : menu.activeItem === item}"
-                             ng-bind="<a>item.name</a> item.meta">
+                             ng-class="{'hover' : menu.activeItem === item}">
+                             <a>{{item.name}}</a> {{item.meta}}
                         </div>
                     </section>
                 </section>
@@ -73,14 +71,13 @@
                    class="festivals">F</a>
             </menu>
 
-            <section id="events" ng-controller="EventController">
+            <section id="events">
                 <div id="event-item" 
                      ng-repeat="event in events"
-                     ng-click="selectEvent(event)" 
-                     ng-class="{'active' : activeEvent === event}">
-                     <img src="" class="artist-pic" />
+                     ng-cloak>
+                     <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
                      <div class="artist-data">
-                         (new Date({{event.date}})).toLocaleDateString('ru-RU')<div class="save-event">Иду</div><br/>
+                         {{event.startDate}}<div class="save-event">Иду</div><br/>
                          {{event.artists.headliner}}<br/><br/>
                          {{event.venue.name}}<br/>
                          {{event.venue.location.city}} {{event.venue.location.country}}<br/>
