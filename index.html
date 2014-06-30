@@ -13,8 +13,8 @@
 
         <link rel="stylesheet" href="css/scrollbar.min.css">
         <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css">
-        <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
-        <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
     </head>
 
     <body ng-app="App">
@@ -25,7 +25,9 @@
                     <nav ng-repeat="tab in menu.tabs"
                          ng-click="switchTab(tab)" 
                          ng-class="{'active' : menu.activeTab.title === tab.title}" 
-                         class="tab">{{tab.title}}
+                         class="tab"
+                         ng-cloak
+                         ng-bind="tab.title">
                     </nav>
                 </section>
 
@@ -38,15 +40,17 @@
                                ng-model-options="{updateOn: 'blur'}"
                                name="searchValue"
                                ng-minlength="5"
+                               ng-cloak
                                ng-keydown="getAutocompleteData(menu.searchValue)">
                     </form>
                     
                     <section id="autocomplete">
                         <div ng-repeat="item in menu.autocompleteItems"
+                             ng-cloak
                              ng-click="search(item.name)"
                              ng-mouseover="selectItem(item)"
-                             ng-class="{'hover' : menu.activeItem === item}">
-                             <a>{{item.name}}</a> {{item.meta}}                 
+                             ng-class="{'hover' : menu.activeItem === item}"
+                             ng-bind="<a>item.name</a> item.meta">
                         </div>
                     </section>
                 </section>
@@ -55,7 +59,9 @@
                     <div ng-repeat="tag in menu.tags"
                          ng-click="switchTag(tag)" 
                          ng-class="{'active' : menu.activeTag === tag}"
-                         class="tag">{{tag}}
+                         class="tag"
+                         ng-cloak
+                         ng-bind="tag">
                     </div>
                 </section>
                 
