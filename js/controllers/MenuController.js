@@ -46,26 +46,16 @@ define(['./module', '../services/index', '../services/module'], function(control
 			$scope.menu.autocompleteItems = [];
 			$scope.menu.searchValue = item;
 
-			// (function go() {
-				SearchService.search(
-					$scope.menu.activeTab.param, 
-					$scope.menu.searchValue, 
-					$scope.menu.searchValue, 
-					$scope.menu.festivalsOnly, 
-					$scope.menu.activeTag, 
-					$scope.pages.page)
-				.success(function(response) {
-					$scope.getEvents(response, $scope.menu.activeTab.param);
-
-					// $scope.pages.page++;
-
-					/*if ($scope.pages.page <= $scope.pages.totalPages) {
-						go();
-					} else {
-						// App.vent.trigger('addPaths');
-					}*/
-				});
-			// }());
+			SearchService.search(
+				$scope.menu.activeTab.param, 
+				$scope.menu.searchValue, 
+				$scope.menu.searchValue, 
+				$scope.menu.festivalsOnly, 
+				$scope.menu.activeTag, 
+				$scope.pages.page)
+			.success(function(response) {
+				$scope.getEvents(response, $scope.menu.activeTab.param);
+			});
 		};
 
 		$scope.events = [];
@@ -83,26 +73,13 @@ define(['./module', '../services/index', '../services/module'], function(control
 				// App.vent.trigger('addEvent', data.events.event);
 			} else {
 				$scope.events = $scope.events.concat(data.events.event);
-
-				console.log($scope.events);
-
-				/*data.events.event.forEach(function(value, index, list) {
-					// App.vent.trigger('addEvent', value);
-					$scope.events.push();
-					
-					if ($scope.pages.page == 1 && index == 0) {
-						// App.vent.trigger('setView', list, param);
-					}
-				});*/
 			}
-
 		};
 
 		$scope.nextPage = function() {
-			if ($scope.pages.page <= $scope.pages.totalPages) {
-				$scope.search($scope.menu.searchValue);
+			if ($scope.pages.page < $scope.pages.totalPages && $scope.menu.searchValue) {
 				$scope.pages.page++;
-				console.log('1');
+				$scope.search($scope.menu.searchValue);
 			}
 		};
 

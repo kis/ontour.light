@@ -66,13 +66,13 @@
                    class="festivals">F</a>
             </menu>
 
-            <section id="events" infinite-scroll="nextPage()" infinite-scroll-distance='1'>
+            <section id="events" infinite-scroll="nextPage()">
                     <div id="event-item" 
                          ng-repeat="event in events"
                          ng-cloak>
                          <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
                          <div class="artist-data">
-                             {{event.startDate}}<!-- <div class="save-event">Иду</div><br/> -->
+                             {{event.startDate}}
                              {{event.artists.headliner}}<br/><br/>
                              {{event.venue.name}}<br/>
                              {{event.venue.location.city}} {{event.venue.location.country}}<br/>
