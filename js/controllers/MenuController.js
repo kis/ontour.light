@@ -46,7 +46,7 @@ define(['./module', '../services/index', '../services/module'], function(control
 			$scope.menu.autocompleteItems = [];
 			$scope.menu.searchValue = item;
 
-			(function go() {
+			// (function go() {
 				SearchService.search(
 					$scope.menu.activeTab.param, 
 					$scope.menu.searchValue, 
@@ -57,21 +57,21 @@ define(['./module', '../services/index', '../services/module'], function(control
 				.success(function(response) {
 					$scope.getEvents(response, $scope.menu.activeTab.param);
 
-					$scope.pages.page++;
+					// $scope.pages.page++;
 
-					if ($scope.pages.page <= $scope.pages.totalPages) {
+					/*if ($scope.pages.page <= $scope.pages.totalPages) {
 						go();
 					} else {
 						// App.vent.trigger('addPaths');
-					}
+					}*/
 				});
-			}());
+			// }());
 		};
 
 		$scope.events = [];
 
 		$scope.getEvents = function(data, param) {
-			if (data.error == 8 || data.events.total == 0) {
+			if (data.error == 8 || typeof data.events == 'undefined' || data.events.total == 0) {
 				$scope.pages.totalPages = 0;
 				return false;
 			}
@@ -82,9 +82,7 @@ define(['./module', '../services/index', '../services/module'], function(control
 			if ($scope.pages.page == $scope.pages.totalPages && /1$/.test($scope.pages.total)) {
 				// App.vent.trigger('addEvent', data.events.event);
 			} else {
-				$scope.events = data.events.event;
-
-				angular.element('#events').perfectScrollbar();
+				$scope.events = $scope.events.concat(data.events.event);
 
 				console.log($scope.events);
 
@@ -96,6 +94,15 @@ define(['./module', '../services/index', '../services/module'], function(control
 						// App.vent.trigger('setView', list, param);
 					}
 				});*/
+			}
+
+		};
+
+		$scope.nextPage = function() {
+			if ($scope.pages.page <= $scope.pages.totalPages) {
+				$scope.search($scope.menu.searchValue);
+				$scope.pages.page++;
+				console.log('1');
 			}
 		};
 

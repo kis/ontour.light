@@ -2,11 +2,13 @@
 
 define(['angular', 
 		'./controllers/index', 
-		'./services/index'], function(angular) {
+		'./services/index',
+		'ngScroll'], function(angular) {
 
 	return angular.module('App', [
 		'ontour.controllers', 
-		'ontour.services'
+		'ontour.services',
+		'infinite-scroll'
 	]);
 
 });

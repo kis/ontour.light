@@ -6,7 +6,7 @@
         <title>Ontour.im</title>
 
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/scrollbar.min.css">
+        <link rel="stylesheet" href="css/ng-scrollbar.min.css">
         <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css">
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
@@ -30,7 +30,7 @@
                     <form name="menuForm">
                         <input class="search-field" 
                                ng-class="{'invalid' : menuForm.searchValue.$invalid}" 
-                               placeholder="Enter {{menu.activeTab.title}}.." 
+                               placeholder="Enter {{menu.activeTab.title}}" 
                                ng-model="menu.searchValue"
                                name="searchValue"
                                ng-cloak
@@ -66,18 +66,18 @@
                    class="festivals">F</a>
             </menu>
 
-            <section id="events">
-                <div id="event-item" 
-                     ng-repeat="event in events"
-                     ng-cloak>
-                     <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
-                     <div class="artist-data">
-                         {{event.startDate}}<div class="save-event">Иду</div><br/>
-                         {{event.artists.headliner}}<br/><br/>
-                         {{event.venue.name}}<br/>
-                         {{event.venue.location.city}} {{event.venue.location.country}}<br/>
-                     </div>                     
-                </div>
+            <section id="events" infinite-scroll="nextPage()" infinite-scroll-distance='1'>
+                    <div id="event-item" 
+                         ng-repeat="event in events"
+                         ng-cloak>
+                         <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
+                         <div class="artist-data">
+                             {{event.startDate}}<!-- <div class="save-event">Иду</div><br/> -->
+                             {{event.artists.headliner}}<br/><br/>
+                             {{event.venue.name}}<br/>
+                             {{event.venue.location.city}} {{event.venue.location.country}}<br/>
+                         </div>                     
+                    </div>
             </section>
 
             <section id="controls">
