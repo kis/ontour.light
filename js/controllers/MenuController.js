@@ -11,7 +11,7 @@ define(['./module', '../services/index', '../services/module'], function(control
 			},
 			searchValue: '',
 			activeTag: '',
-			festivalsOnly: false,
+			festivalsOnly: 0,
 			activeItem: ''
 		};
 
@@ -28,6 +28,7 @@ define(['./module', '../services/index', '../services/module'], function(control
 
 		$scope.switchTab = function(tab) {
 			$scope.menu.activeTab = tab;
+			$scope.reset();
 		};
 
 		$scope.menu.tags = ['rock', 'pop', 'alternative', 'indie', 'electronic', 'classic rock', 'hip-hop', 'dance', 'jazz'];
@@ -42,10 +43,26 @@ define(['./module', '../services/index', '../services/module'], function(control
 			totalPages: 1
 		};
 
-		$scope.search = function(item) {
-			$scope.menu.autocompleteItems = [];
-			$scope.menu.searchValue = item;
+		$scope.pages_orig = angular.copy($scope.pages);
 
+		$scope.resetPages = function() {
+			$scope.pages = $scope.pages_orig;
+		};
+
+		$scope.reset = function() {
+			$scope.menu.autocompleteItems = [];
+			$scope.menu.searchValue = '';
+			$scope.events = [];
+			$scope.resetPages();
+		};
+
+		$scope.search = function(item) {
+			$scope.reset();
+			$scope.menu.searchValue = item;
+			$scope.getItemsPerPage($scope.menu.searchValue);
+		};
+
+		$scope.getItemsPerPage = function() {
 			SearchService.search(
 				$scope.menu.activeTab.param, 
 				$scope.menu.searchValue, 
@@ -79,12 +96,12 @@ define(['./module', '../services/index', '../services/module'], function(control
 		$scope.nextPage = function() {
 			if ($scope.pages.page < $scope.pages.totalPages && $scope.menu.searchValue) {
 				$scope.pages.page++;
-				$scope.search($scope.menu.searchValue);
+				$scope.getItemsPerPage($scope.menu.searchValue);
 			}
 		};
 
 		$scope.setFestivalsOnly = function() {
-			$scope.menu.festivalsOnly = $scope.menu.festivalsOnly == false ? true : false;
+			$scope.menu.festivalsOnly = $scope.menu.festivalsOnly == 0 ? 1 : 0;
 		};
 
 		$scope.years = ['2014', '2015', '2016', '2017'];
