@@ -6,7 +6,7 @@
         <title>Ontour.im</title>
 
         <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/ng-scrollbar.min.css">
+        <!-- <link rel="stylesheet" href="css/ng-scrollbar.min.css"> -->
         <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css">
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
@@ -15,58 +15,60 @@
     <body>
         <section id="sidebar" ng-controller="MenuController">
 
-            <menu id="search">
-                <section id="tabs">
-                    <nav ng-repeat="tab in menu.tabs"
-                         ng-click="switchTab(tab)" 
-                         ng-class="{'active' : menu.activeTab.title === tab.title}" 
-                         class="tab"
-                         ng-cloak
-                         ng-bind="tab.title">
-                    </nav>
-                </section>
+            <section id="sidebar_inner" ng-controller="SearchController">
 
-                <section ng-controller="AutocompleteController">
-                    <form name="menuForm">
-                        <input class="search-field" 
-                               ng-class="{'invalid' : menuForm.searchValue.$invalid}" 
-                               placeholder="Enter {{menu.activeTab.title}}" 
-                               ng-model="menu.searchValue"
-                               name="searchValue"
-                               ng-cloak
-                               ng-keydown="getAutocompleteData(menu.searchValue)">
-                    </form>
-                    
-                    <section id="autocomplete">
-                        <div ng-repeat="item in menu.autocompleteItems"
+                <menu id="search">
+                    <section id="tabs">
+                        <nav ng-repeat="tab in tabs"
+                             ng-click="switchTab(tab)" 
+                             ng-class="{'active' : menu.activeTab.title === tab.title}" 
+                             ng-bind="tab.title"
                              ng-cloak
-                             ng-click="search(item.name)"
-                             ng-mouseover="selectItem(item)"
-                             ng-class="{'hover' : menu.activeItem === item}">
-                             <a>{{item.name}}</a> {{item.meta}}
+                             class="tab">
+                        </nav>
+                    </section>
+
+                    <section ng-controller="AutocompleteController">
+                        <form name="menuForm">
+                            <input ng-class="{'invalid' : menuForm.searchValue.$invalid}" 
+                                   ng-model="menu.searchValue"
+                                   ng-keydown="getAutocompleteData(menu.searchValue)"
+                                   ng-cloak
+                                   class="search-field" 
+                                   name="searchValue"
+                                   placeholder="Enter {{menu.activeTab.title}}">
+                        </form>
+                        
+                        <section id="autocomplete">
+                            <div ng-repeat="item in autocomplete.items"
+                                 ng-click="search(item.name)"
+                                 ng-mouseover="selectItem(item)"
+                                 ng-class="{'hover' : autocomplete.activeItem === item}"
+                                 ng-cloak>
+                                 <a>{{item.name}}</a> {{item.meta}}
+                            </div>
+                        </section>
+                    </section>
+                    
+                    <section id="tags" ng-show="menu.activeTab.title === 'location'">
+                        <div ng-repeat="tag in tags"
+                             ng-click="switchTag(tag)" 
+                             ng-class="{'active' : menu.activeTag === tag}"
+                             ng-bind="tag"
+                             ng-cloak
+                             class="tag">
                         </div>
                     </section>
-                </section>
-                
-                <section id="tags" ng-show="menu.activeTab === 'city'">
-                    <div ng-repeat="tag in menu.tags"
-                         ng-click="switchTag(tag)" 
-                         ng-class="{'active' : menu.activeTag === tag}"
-                         class="tag"
-                         ng-cloak
-                         ng-bind="tag">
-                    </div>
-                </section>
-                
-                <a class="search-button" ng-click="search()">Search</a>
+                    
+                    <a class="search-button" ng-click="search()">Search</a>
 
-                <a title="Festivals only" 
-                   ng-click="setFestivalsOnly()"
-                   ng-class="{'active' : menu.festivalsOnly === 1}"
-                   class="festivals">F</a>
-            </menu>
+                    <a ng-click="setFestivalsOnly()"
+                       ng-class="{'active' : menu.festivalsOnly === 1}"
+                       title="Festivals only" 
+                       class="festivals">F</a>
+                </menu>
 
-            <section id="events" infinite-scroll="nextPage()">
+                <section id="events">
                     <div id="event-item" 
                          ng-repeat="event in events"
                          ng-cloak>
@@ -78,6 +80,13 @@
                              {{event.venue.location.city}} {{event.venue.location.country}}<br/>
                          </div>                     
                     </div>
+                    <div id="more" 
+                         ng-click="nextPage()"
+                         ng-show="events"
+                         ng-cloak>More
+                    </div>
+                </section>
+
             </section>
 
             <section id="controls">
@@ -93,15 +102,13 @@
                 </section>
             </section>
 
-            <section id="status">
-                
-            </section>
+            <section id="status"></section>
 
         </section>
 
         <dialog id="notification"></dialog>
         <section id="event-detail"></section>
-        <section id="map" ng-controller="MapController" ng-init="init()"></section>
+        <section id="map" ng-controller="MapController"></section>
 
         <script src="../js/lib/require-min.js" data-main="../js/main.js"></script>
     </body>

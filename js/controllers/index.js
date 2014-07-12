@@ -4,5 +4,6 @@ define([
 	'./AutocompleteController', 
 	'./EventController',
 	'./MapController',
-	'./MenuController'
+	'./MenuController',
+	'./SearchController'
 ], function () {});

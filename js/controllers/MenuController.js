@@ -1,8 +1,8 @@
 'use strict';
 
-define(['./module', '../services/index', '../services/module'], function(controllers) {
+define(['./module'], function(controllers) {
 
-	controllers.controller('MenuController', ['$scope', 'SearchService', function($scope, SearchService) {
+	controllers.controller('MenuController', ['$scope', function($scope) {
 
 		$scope.menu = {
 			activeTab: {
@@ -11,11 +11,10 @@ define(['./module', '../services/index', '../services/module'], function(control
 			},
 			searchValue: '',
 			activeTag: '',
-			festivalsOnly: 0,
-			activeItem: ''
+			festivalsOnly: 0
 		};
 
-		$scope.menu.tabs = [
+		$scope.tabs = [
 			{
 				title: 'artist',
 				param: 'artist'
@@ -28,90 +27,29 @@ define(['./module', '../services/index', '../services/module'], function(control
 
 		$scope.switchTab = function(tab) {
 			$scope.menu.activeTab = tab;
-			$scope.reset();
+			$scope.menu.searchValue = '';
 		};
 
-		$scope.menu.tags = ['rock', 'pop', 'alternative', 'indie', 'electronic', 'classic rock', 'hip-hop', 'dance', 'jazz'];
+		$scope.tags = ['rock', 'pop', 'alternative', 'indie', 'electronic', 
+			'classic rock', 'hip-hop', 'dance', 'jazz'];
 
 		$scope.switchTag = function(tag) {
 			$scope.menu.activeTag = $scope.menu.activeTag == tag ? '' : tag;
-		};
-
-		$scope.pages = {
-			page: 1,
-			total: 1,
-			totalPages: 1
-		};
-
-		$scope.pages_orig = angular.copy($scope.pages);
-
-		$scope.resetPages = function() {
-			$scope.pages = $scope.pages_orig;
-		};
-
-		$scope.reset = function() {
-			$scope.menu.autocompleteItems = [];
-			$scope.menu.searchValue = '';
-			$scope.events = [];
-			$scope.resetPages();
-		};
-
-		$scope.search = function(item) {
-			$scope.reset();
-			$scope.menu.searchValue = item;
-			$scope.getItemsPerPage($scope.menu.searchValue);
-		};
-
-		$scope.getItemsPerPage = function() {
-			SearchService.search(
-				$scope.menu.activeTab.param, 
-				$scope.menu.searchValue, 
-				$scope.menu.searchValue, 
-				$scope.menu.festivalsOnly, 
-				$scope.menu.activeTag, 
-				$scope.pages.page)
-			.success(function(response) {
-				$scope.getEvents(response, $scope.menu.activeTab.param);
-			});
-		};
-
-		$scope.events = [];
-
-		$scope.getEvents = function(data, param) {
-			if (data.error == 8 || typeof data.events == 'undefined' || data.events.total == 0) {
-				$scope.pages.totalPages = 0;
-				return false;
-			}
-
-			$scope.pages.totalPages = data.events["@attr"].totalPages;
-			$scope.pages.total = data.events["@attr"].total;
-
-			if ($scope.pages.page == $scope.pages.totalPages && /1$/.test($scope.pages.total)) {
-				// App.vent.trigger('addEvent', data.events.event);
-			} else {
-				$scope.events = $scope.events.concat(data.events.event);
-			}
-		};
-
-		$scope.nextPage = function() {
-			if ($scope.pages.page < $scope.pages.totalPages && $scope.menu.searchValue) {
-				$scope.pages.page++;
-				$scope.getItemsPerPage($scope.menu.searchValue);
-			}
 		};
 
 		$scope.setFestivalsOnly = function() {
 			$scope.menu.festivalsOnly = $scope.menu.festivalsOnly == 0 ? 1 : 0;
 		};
 
-		$scope.years = ['2014', '2015', '2016', '2017'];
-
-		$scope.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-		$scope.days = [];
+		$scope.date = {
+			years: ['2014', '2015', '2016', '2017'],
+			months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
+				'August', 'September', 'October', 'November', 'December'],
+			days: []
+		};
 
 		for (var i = 1; i < 32; i++) {
-	        $scope.days.push(i);
+	        $scope.date.days.push(i);
 	    }
 
 	}]);
