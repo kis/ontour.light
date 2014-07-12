@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
     </head>
 
-    <body>
+    <body ng-controller="MapController">
         <section id="sidebar" ng-controller="MenuController">
 
             <section id="sidebar_inner" ng-controller="SearchController">
@@ -60,7 +60,7 @@
                         </div>
                     </section>
                     
-                    <a class="search-button" ng-click="search()">Search</a>
+                    <a class="search-button" ng-click="search(menu.searchValue)">Search</a>
 
                     <a ng-click="setFestivalsOnly()"
                        ng-class="{'active' : menu.festivalsOnly === 1}"
@@ -68,9 +68,11 @@
                        class="festivals">F</a>
                 </menu>
 
-                <section id="events">
+                <section id="events" ng-controller="EventController">
                     <div id="event-item" 
                          ng-repeat="event in events"
+                         ng-class="{'selected' : event.selected}"
+                         ng-click="selectEvent()"
                          ng-cloak>
                          <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
                          <div class="artist-data">
@@ -108,7 +110,7 @@
 
         <dialog id="notification"></dialog>
         <section id="event-detail"></section>
-        <section id="map" ng-controller="MapController"></section>
+        <section id="map"></section>
 
         <script src="../js/lib/require-min.js" data-main="../js/main.js"></script>
     </body>

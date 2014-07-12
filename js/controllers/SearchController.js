@@ -6,6 +6,8 @@ define(['./module'], function(controllers) {
 
 		$scope.events = [];
 
+		$scope.lastEvents = [];
+
 		$scope.pages = {
 			page: 0,
 			total: 1,
@@ -50,12 +52,13 @@ define(['./module'], function(controllers) {
 			if ($scope.pages.page == $scope.pages.totalPages && /1$/.test($scope.pages.total)) {
 				// App.vent.trigger('addEvent', data.events.event);
 			} else {
-				$scope.events = $scope.events.concat(data.events.event);
+				$scope.lastEvents = data.events.event;
 			}
 		};
 
 		$scope.reset = function() {
 			$scope.events = [];
+			$scope.lastEvents = [];
 			$scope.pages = angular.copy($scope.pages_orig);
 			$scope.$broadcast('resetAutocomplete');
 		};

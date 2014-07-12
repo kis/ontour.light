@@ -1,6 +1,6 @@
 'use strict';
 
-define(['./module', 'mapbox'], function(controllers) {
+define(['./module', 'mapbox', 'cluster'], function(controllers) {
 
 	controllers.controller('MapController', ['$scope', function($scope) {
 
@@ -8,13 +8,17 @@ define(['./module', 'mapbox'], function(controllers) {
 		zr0njcqy
 		4l7djmvo*/
 
-		L.mapbox.map('map', 'examples.map-i87786ca', {
-			minZoom: 2,
-		    maxZoom: 14
-		}).setView([0, 0], 2).zoomControl.setPosition('bottomright');
+		$scope.cluster = new L.MarkerClusterGroup();
 
-		$scope.cluster = function() {
+		$scope.map = L.mapbox.map('map', 'examples.map-i87786ca', {
+				minZoom: 2,
+			    maxZoom: 14
+			}).setView([0, 0], 2).zoomControl.setPosition('bottomright');
 
+		$scope.resetCluster = function() {
+			$scope.map.removeLayer($scope.cluster);
+			$scope.cluster = new L.MarkerClusterGroup();
+			$scope.map.addLayer($scope.cluster);
 		};
 
 	}]);
