@@ -13,7 +13,11 @@ define(['./module', 'mapbox', 'cluster'], function(controllers) {
 		$scope.map = L.mapbox.map('map', 'examples.map-i87786ca', {
 				minZoom: 2,
 			    maxZoom: 14
-			}).setView([0, 0], 2).zoomControl.setPosition('bottomright');
+			});
+
+		$scope.map.setView([0, 0], 2).zoomControl.setPosition('bottomright');
+
+		$scope.map.addLayer($scope.cluster);
 
 		$scope.resetCluster = function() {
 			$scope.map.removeLayer($scope.cluster);

@@ -8,7 +8,6 @@ define(['./module'], function(controllers) {
 
 		$scope.$watchCollection('lastEvents', function() {
 			angular.forEach($scope.lastEvents, function(event) {
-				console.log(event);
 				$scope.addIcon(event);
 				$scope.addMarker(event);
 				$scope.addPopup(event);
