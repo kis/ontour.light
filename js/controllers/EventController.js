@@ -54,24 +54,29 @@ define(['./module'], function(controllers) {
 				closeOnClick: false
 			})
 			.setLatLng(event.marker.getLatLng())
-			.setContent();
+			.setContent('aa');
 
-			var actions = {
-				mouseover: $scope.showPopup,
-				mouseout: $scope.hidePopup,
-				click: $scope.selectEvent
-			};
+			event.marker.on('mouseover', function() {
+				$scope.showPopup(event);
+			}, event);
 
-			event.marker.on(actions);
+			event.marker.on('mouseout', function() {
+				$scope.hidePopup(event);
+			}, event);
+
+			event.marker.on('click', function() {
+				$scope.selectEvent(event);
+			}, event);
+
 		};
 
-		$scope.selectEvent = function() {
+		$scope.selectEvent = function(event) {
 			if (event.popup != null) {
 				if (event.selected) {
-					$scope.hidePopup();
+					$scope.hidePopup(event);
 					event.selected = false;
 				} else {
-					$scope.showPopup();
+					$scope.showPopup(event);
 					event.selected = true;
 					$scope.map.panTo(event.marker.getLatLng());
 				}
@@ -79,14 +84,14 @@ define(['./module'], function(controllers) {
 			return false;
 		};
 
-		$scope.showPopup = function() {
+		$scope.showPopup = function(event) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.addLayer(event.popup);
 				return false;
 			}
 		};
 
-		$scope.hidePopup = function() {
+		$scope.hidePopup = function(event) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.removeLayer(event.popup);
 				return false;

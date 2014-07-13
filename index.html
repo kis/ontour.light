@@ -71,7 +71,9 @@
                     <div id="event-item" 
                          ng-repeat="event in events"
                          ng-class="{'selected' : event.selected}"
-                         ng-click="selectEvent()"
+                         ng-click="selectEvent(event)"
+                         ng-mouseover="showPopup(event)"
+                         ng-mouseout="hidePopup(event)"
                          ng-cloak>
                          <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
                          <div class="artist-data">
@@ -111,6 +113,6 @@
         <section id="event-detail"></section>
         <section id="map"></section>
 
-        <script src="../js/lib/require-min.js" data-main="../js/main.js"></script>
+        <script src="../js/vendor/require-min.js" data-main="../js/main.js"></script>
     </body>
 </html>

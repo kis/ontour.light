@@ -14,8 +14,6 @@ Angular.js, Require.js, Mapbox.js, lastFM API, Geobytes API
 * Optional search for festivals only
 * Filter by year/month/day
 * Single page app
-* Registration
-* Possibility to save shows you like, and see them in profile 
 
 ####License
 MIT © Kirill Stepkin
