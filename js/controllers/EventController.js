@@ -4,16 +4,19 @@ define(['./module'], function(controllers) {
 
 	controllers.controller('EventController', ['$scope', function($scope) {
 
-		$scope.activeEvent = '';
-
 		$scope.$watchCollection('lastEvents', function() {
-			angular.forEach($scope.lastEvents, function(event) {
-				$scope.addIcon(event);
-				$scope.addMarker(event);
-				$scope.addPopup(event);
-			});
+			if ($scope.lastEvents.length) {
+				angular.forEach($scope.lastEvents, function(event) {
+					$scope.addIcon(event);
+					$scope.addMarker(event);
+					$scope.addPopup(event);
+				});
 
-			$scope.events = $scope.events.concat($scope.lastEvents);
+				$scope.events = $scope.events.concat($scope.lastEvents);
+			} else {
+				$scope.events = [];
+				$scope.resetCluster();
+			}
 		});
 
 		$scope.addIcon = function(event) {
@@ -54,7 +57,14 @@ define(['./module'], function(controllers) {
 				closeOnClick: false
 			})
 			.setLatLng(event.marker.getLatLng())
-			.setContent('aa');
+			.setContent('<div id="event-item">' +
+						'<img src="' + event.image[1]['#text'] + '" class="artist-pic" />' +
+						'<div class="artist-data">' +
+						event.artists.headliner + '<br/>' +
+						event.startDate + '<br/>' + 
+						event.venue.name + '<br/>' +
+						event.venue.location.city + ' ' + event.venue.location.country + 
+						'</div></div>');
 
 			event.marker.on('mouseover', function() {
 				$scope.showPopup(event);

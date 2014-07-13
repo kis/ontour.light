@@ -35,25 +35,21 @@ define(['./module'], function(controllers) {
 					page 		  : $scope.pages.page
 				})
 				.success(function(response) {
-					$scope.getEvents(response, $scope.menu.activeTab.param);
+					if (response.error == 8 || 
+						typeof response.events == 'undefined' || 
+						response.events.total == 0) {
+							return false;
+					}
+
+					$scope.getEvents(response);
 				});
 			}
 		};
 
-		$scope.getEvents = function(data, param) {
-			if (data.error == 8 || typeof data.events == 'undefined' || data.events.total == 0) {
-				$scope.pages.totalPages = 0;
-				return false;
-			}
-
+		$scope.getEvents = function(data) {
 			$scope.pages.totalPages = data.events["@attr"].totalPages;
 			$scope.pages.total = data.events["@attr"].total;
-
-			if ($scope.pages.page == $scope.pages.totalPages && /1$/.test($scope.pages.total)) {
-				// App.vent.trigger('addEvent', data.events.event);
-			} else {
-				$scope.lastEvents = data.events.event;
-			}
+			$scope.lastEvents = data.events.event;
 		};
 
 		$scope.reset = function() {

@@ -72,8 +72,8 @@
                          ng-repeat="event in events"
                          ng-class="{'selected' : event.selected}"
                          ng-click="selectEvent(event)"
-                         ng-mouseover="showPopup(event)"
-                         ng-mouseout="hidePopup(event)"
+                         ng-mouseenter="showPopup(event)"
+                         ng-mouseleave="hidePopup(event)"
                          ng-cloak>
                          <img ng-src="{{event.image[1]['#text']}}" class="artist-pic" />
                          <div class="artist-data">
