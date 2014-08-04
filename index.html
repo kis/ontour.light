@@ -70,7 +70,7 @@
                 <section id="events" ng-controller="EventController">
                     <div id="event-item" 
                          ng-repeat="event in events"
-                         ng-class="{'selected' : event.selected}"
+                         ng-class="{'selected' : event.selected || event.focused}"
                          ng-click="selectEvent(event)"
                          ng-mouseenter="showPopup(event)"
                          ng-mouseleave="hidePopup(event)"

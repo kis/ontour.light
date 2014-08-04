@@ -77,7 +77,6 @@ define(['./module'], function(controllers) {
 			event.marker.on('click', function() {
 				$scope.selectEvent(event);
 			}, event);
-
 		};
 
 		$scope.selectEvent = function(event) {
@@ -89,22 +88,24 @@ define(['./module'], function(controllers) {
 					$scope.showPopup(event);
 					event.selected = true;
 					$scope.map.panTo(event.marker.getLatLng());
+					$scope.$apply();
 				}
 			}
-			return false;
 		};
 
 		$scope.showPopup = function(event) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.addLayer(event.popup);
-				return false;
+				event.focused = true;
+				$scope.$apply();
 			}
 		};
 
 		$scope.hidePopup = function(event) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.removeLayer(event.popup);
-				return false;
+				event.focused = false;
+				$scope.$apply();
 			}
 		};
 
