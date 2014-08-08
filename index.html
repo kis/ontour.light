@@ -14,9 +14,12 @@
     <body ng-controller="MapController">
         <section id="sidebar" ng-controller="MenuController">
 
-            <section id="sidebar_inner" ng-controller="SearchController">
+            <section id="sidebar_inner" 
+                     ng-controller="SearchController">
 
-                <menu id="search">
+                <menu id="search" 
+                      ng-class="{'slide-menu' : pages.page > 0}"
+                      class="fade-animation">
                     <section id="tabs">
                         <nav ng-repeat="tab in tabs"
                              ng-click="switchTab(tab)" 
@@ -95,7 +98,7 @@
             </section>
 
             <section id="controls">
-                <a id="slide">Slide</a>
+                <a id="slide"><</a>
                 <a id="markers" class="layers active"><b>markers</b></a>
                 <a id="paths" class="layers active"><b>paths</b></a>
                 <a id="go-top"><b>^</b></a>

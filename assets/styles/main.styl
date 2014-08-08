@@ -24,7 +24,6 @@ body
 	left 0px
 	width 360px
 	height 100%
-	background rgba(16,49,90,0.2)
 	z-index 3
 
 #sidebar_inner
@@ -48,7 +47,7 @@ body
 	line-height 25pt
 	text-align center
 	font $font
-	display inline-block
+	display none
 	color white
 	background rgba(16,49,90,0.5)
 	&:hover
@@ -95,6 +94,9 @@ body
 
 .fade-animation.ng-leave.ng-leave-active
 	opacity 0
+
+.fade-animation.slide-menu
+	left 345px
 
 .tag, #years div div, #months div div, #days div div
 	cursor pointer
@@ -168,10 +170,11 @@ body
  */
 
 #search
-	position relative
+	position absolute
+	top 15px
+	margin-left 15px
 	width 335px
 	font-size 0
-	margin 15px
 	padding 0px
 	z-index 15
 	clear both
@@ -236,14 +239,17 @@ body
  */
 
 #events
-	position relative
+	position absolute
+	top 15px
+	left 15px
+	bottom 15px
 	width 92%
-	height (100% / 1.237)
+	height auto
 	overflow-y auto
+	overflow-x hidden
 	font $font
 	color white
 	background transparent
-	margin 15px
 	z-index 6
 
 #event-item
