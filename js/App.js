@@ -1,15 +1,15 @@
 'use strict';
 
-define(['angular', 
+define(['angular',
+		'animate', 
 		'./controllers/index', 
-		'./services/index'
-		// 'ngScroll'
-		], function(angular) {
+		'./services/index',
+		], function(angular, animate) {
 
 	return angular.module('App', [
+		'ngAnimate',
 		'ontour.controllers', 
-		'ontour.services'
-		// 'infinite-scroll'
+		'ontour.services',
 	]);
 
 });

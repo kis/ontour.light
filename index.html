@@ -49,9 +49,11 @@
                         </section>
                     </section>
                     
-                    <section id="tags" ng-show="menu.activeTab.title === 'location'">
+                    <section id="tags"
+                             ng-if="menu.activeTab.title === 'location'"
+                             class="fade-animation">
                         <div ng-repeat="tag in tags"
-                             ng-click="switchTag(tag)" 
+                             ng-click="switchTag(tag)"
                              ng-class="{'active' : menu.activeTag === tag}"
                              ng-bind="tag"
                              ng-cloak
