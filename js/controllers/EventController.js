@@ -60,8 +60,8 @@ define(['./module'], function(controllers) {
 			.setContent('<div id="event-item">' +
 						'<img src="' + event.image[1]['#text'] + '" class="artist-pic" />' +
 						'<div class="artist-data">' +
-						event.artists.headliner + '<br/>' +
 						event.startDate + '<br/>' + 
+						event.artists.headliner + '<br/><br/>' +
 						event.venue.name + '<br/>' +
 						event.venue.location.city + ' ' + event.venue.location.country + 
 						'</div></div>');
