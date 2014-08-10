@@ -1,7 +1,8 @@
 
 $bg = rgba(16,49,90,1)
 $bg-alpha = rgba(16,49,90,0.4)
-$border = #7e3762
+$bg-grey = rgba(223,223,223,0.5)
+$border = rgba(16,49,90,1)
 
 $font = bold small-caps 16px serif
 $fontEvents = bold small-caps 14px serif
@@ -9,7 +10,9 @@ $fontSmall = bold small-caps 12px serif
 $fontHeader = bold small-caps 18px serif
 
 $padding = 12px 14px 12px 14px
+$paddingFF = 10px 12px 10px 12px
 $paddingLess = 6px 8px 6px 8px
+$paddingLessFF = 7px 8px 7px 8px
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
 	display none !important
@@ -204,7 +207,7 @@ body
 	line-height 25pt
 	font $font
 	display block
-	padding 11px 12px 11px 12px
+	padding 11px 11px 11px 12px
 	outline none
 	border 0px
 
@@ -283,7 +286,7 @@ body
 	position relative
 	width 303px
 	height 25px
-	padding 14px
+	padding 18px 14px 12px 14px
 	background-color $bg-alpha
 	text-align center
 	&:hover
@@ -323,10 +326,11 @@ body
 	background white
 
 #autocomplete div
-	padding 10px
+	padding $paddingLess
+	border-bottom 1px solid $bg-alpha
 
 .hover
-	background #dfdfdf
+	background $bg-grey
 
 /**
  * Map area
@@ -365,15 +369,20 @@ body
 	border-top 10px solid $bg !important
 
 @-moz-document url-prefix()
-	.tab, .search-field, .search-button, #events, .artist-data, 
-	#status, #autocomplete, #settings a, #controls a, .tag, 
-	#status div, .festivals, #date-selector, #years div div, 
-	#months div div, #days div div
+	.tab, .search-field, .search-button, #status, 
+	#settings a, #controls a, #status div, 
+	.festivals, #date-selector, #years div, 
+	#months div, #days div
 		font $fontSmall
-		line-height 20px
+		padding 12px 14px 12px 14px
 	.search-field
-		padding 14px 12px 14px 12px
+		padding $paddingFF
 		margin 2px 0 2px 0
 	#controls .layers
 		padding-top 17px
 		padding-bottom 16px
+	.artist-data
+		font $fontSmall
+	.tag, #autocomplete div
+		padding $paddingLessFF
+		font $fontSmall
