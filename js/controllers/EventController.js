@@ -88,7 +88,9 @@ define(['./module'], function(controllers) {
 					$scope.showPopup(event);
 					event.selected = true;
 					$scope.map.panTo(event.marker.getLatLng());
-					$scope.$apply();
+					if(!$scope.$$phase) {
+						$scope.$apply();
+					}
 				}
 			}
 		};
@@ -97,7 +99,9 @@ define(['./module'], function(controllers) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.addLayer(event.popup);
 				event.focused = true;
-				$scope.$apply();
+				if(!$scope.$$phase) {
+					$scope.$apply();
+				}
 			}
 		};
 
@@ -105,7 +109,9 @@ define(['./module'], function(controllers) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.removeLayer(event.popup);
 				event.focused = false;
-				$scope.$apply();
+				if(!$scope.$$phase) {
+					$scope.$apply();
+				}
 			}
 		};
 

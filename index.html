@@ -14,11 +14,10 @@
     <body ng-controller="MapController">
         <section id="sidebar" ng-controller="MenuController">
 
-            <section id="sidebar_inner" 
-                     ng-controller="SearchController">
+            <section ng-controller="SearchController">
 
                 <menu id="search" 
-                      ng-class="{'slide-menu' : pages.page > 0}"
+                      ng-class="{'slide-menu' : pages.page}"
                       class="fade-animation">
                     <section id="tabs">
                         <nav ng-repeat="tab in tabs"
@@ -96,27 +95,30 @@
                     </div>
                 </section>
 
-            </section>
-
-            <section id="controls">
-                <a id="slide"><</a>
-                <a id="markers" class="layers active"><b>markers</b></a>
-                <a id="paths" class="layers active"><b>paths</b></a>
-                <a id="go-top"><b>^</b></a>
-                <div id="date-selector">Date</div>
-                <section id="date">
-                    <section id="years"></section>
-                    <section id="months"></section>
-                    <section id="days"></section>          
+                <section id="options" ng-controller="OptionsController">
+                    <a id="slide"><</a>
+                    <a id="markers" class="layers active"><b>markers</b></a>
+                    <a id="paths" class="layers active"><b>paths</b></a>
+                    <a id="go-top"><b>^</b></a>
+                    <div id="date-selector" 
+                         ng-show="pages.page" 
+                         ng-click="toggleDate()"
+                         ng-cloak>
+                         Date
+                    </div>
+                    <section id="date"
+                             ng-cloak 
+                             ng-show="options.show_date">
+                        <section id="years"></section>
+                        <section id="months"></section>
+                        <section id="days"></section>          
+                    </section>
                 </section>
-            </section>
 
-            <section id="status"></section>
+            </section>
 
         </section>
 
-        <dialog id="notification"></dialog>
-        <section id="event-detail"></section>
         <section id="map"></section>
 
         <script src="../js/vendor/require-min.js" data-main="../js/main.js"></script>

@@ -32,21 +32,18 @@ body
 	height 100%
 	z-index 3
 
-#sidebar_inner
-	height 100%
-
-#controls
+#options
 	position absolute
 	top 0px
 	left 360px
 	width 800px
 	z-index 3
 
-#controls .layers
+#options .layers
 	padding-bottom 15px
 	display none
 
-#controls a
+#options a
 	cursor pointer
 	padding $padding
 	margin-top 15px
@@ -59,7 +56,7 @@ body
 	&:hover
 		background $bg !important
 
-#controls input
+#options input
 	line-height 33pt
 	outline none
 	border none
@@ -129,7 +126,6 @@ body
 	line-height 25pt
 	text-align center
 	font $font
-	display none
 	color white
 	background $bg-alpha
 	&:hover
@@ -143,14 +139,13 @@ body
 	width 350px
 	height 315px
 	background $bg-alpha
-	display none
 
 #years
 	margin 15px
 	display block
 	height 30px
 
-#years div div
+#years div
 	padding 4px
 	width 70px
 
@@ -159,7 +154,7 @@ body
 	display block
 	height 120px
 
-#months div div
+#months div
 	padding 5px
 	width 95px
 
@@ -167,7 +162,7 @@ body
 	margin 15px
 	display block
 
-#days div div
+#days div
 	padding 3px
 	width 25px
 
@@ -294,25 +289,6 @@ body
 		cursor pointer
 
 /**
- * Status
- */
-
-#status
-	position absolute
-	top 92px
-	left 345px
-
-#status div
-	width 100px
-	margin 15px
-	padding $padding
-	font $font
-	color white
-	text-align center
-	display none
-	background $bg
-
-/**
  * Autocomplete
  */
 
@@ -369,16 +345,16 @@ body
 	border-top 10px solid $bg !important
 
 @-moz-document url-prefix()
-	.tab, .search-field, .search-button, #status, 
-	#settings a, #controls a, #status div, 
-	.festivals, #date-selector, #years div, 
-	#months div, #days div
+	.tab, .search-button,
+	#options a, .festivals, #date-selector, 
+	#years div,	#months div, #days div
 		font $fontSmall
 		padding 12px 14px 12px 14px
 	.search-field
+		font $fontSmall
 		padding $paddingFF
 		margin 2px 0 2px 0
-	#controls .layers
+	#options .layers
 		padding-top 17px
 		padding-bottom 16px
 	.artist-data

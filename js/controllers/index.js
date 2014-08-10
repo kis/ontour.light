@@ -5,5 +5,6 @@ define([
 	'./EventController',
 	'./MapController',
 	'./MenuController',
-	'./SearchController'
+	'./SearchController',
+	'./OptionsController'
 ], function () {});
