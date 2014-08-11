@@ -99,6 +99,7 @@ define(['./module'], function(controllers) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.addLayer(event.popup);
 				event.focused = true;
+				$scope.map.panTo(event.marker.getLatLng());
 				if(!$scope.$$phase) {
 					$scope.$apply();
 				}
