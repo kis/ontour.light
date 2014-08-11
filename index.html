@@ -103,15 +103,28 @@
                     <div id="date-selector" 
                          ng-show="pages.page" 
                          ng-click="toggleDate()"
+                         ng-class="{'active' : options.show_date}"
                          ng-cloak>
                          Date
                     </div>
                     <section id="date"
                              ng-cloak 
                              ng-show="options.show_date">
-                        <section id="years"></section>
-                        <section id="months"></section>
-                        <section id="days"></section>          
+                        <section id="years">
+                            <div ng-repeat="year in years">
+                                {{year}}
+                            </div>
+                        </section>
+                        <section id="months">
+                            <div ng-repeat="month in months">
+                                {{month}}
+                            </div>
+                        </section>
+                        <section id="days">
+                            <div ng-repeat="day in days">
+                                {{day}}
+                            </div>
+                        </section>          
                     </section>
                 </section>
 

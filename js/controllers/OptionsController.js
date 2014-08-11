@@ -14,6 +14,19 @@ define(['./module'], function(controllers) {
 				false : true;
 		};
 
+		$scope.years = [2014, 2015, 2016, 2017];
+		        
+		$scope.months = ['January', 'February', 'March',
+						 'April', 'May', 'June', 
+						 'July', 'August', 'September',
+						 'October', 'November', 'December'];
+
+		$scope.days = [];
+		
+		for (var i = 1; i < 32; i++) {
+		    $scope.days.push(i);
+		}
+
 	}]);
 
 });
