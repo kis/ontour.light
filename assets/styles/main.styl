@@ -32,48 +32,11 @@ body
 	height 100%
 	z-index 3
 
-#options
-	position absolute
-	top 0px
-	left 360px
-	width 800px
-	z-index 3
-
-#options .layers
-	padding-bottom 15px
-	display none
-
-#options a
-	cursor pointer
-	padding $padding
-	margin-top 15px
-	line-height 25pt
-	text-align center
-	font $font
-	display none
-	color white
-	background $bg-alpha
-	&:hover
-		background $bg !important
-
-#options input
-	line-height 33pt
-	outline none
-	border none
-	display none
-
-#go-top
-	position fixed
-	bottom 15px
-	left 360px
-	margin-top 15px
-	width 10px !important
-
 /**
   * Tags, Years, Months, Days
   */
 
-#tags, #years, #months, #days
+#tags
 	position relative
 	width 335px
 	height 95px
@@ -101,7 +64,7 @@ body
 .fade-animation.slide-menu
 	left 345px
 
-.tag, #years div, #months div, #days div
+.tag
 	cursor pointer
 	padding $paddingLess
 	width 94px
@@ -114,60 +77,6 @@ body
 	background $bg-alpha
 	&:hover
 		background $bg !important
-
-#date-selector
-	position absolute
-	top 0px
-	left 345px
-	cursor pointer
-	padding $paddingLess
-	width 60px
-	margin-top 15px
-	line-height 25pt
-	text-align center
-	font $font
-	color white
-	background $bg-alpha
-	&:hover
-		background $bg !important
-
-#date
-	position absolute
-	top 45px
-	left 345px
-	border-left 1px solid $bg
-	width 305px
-	height 275px
-	background $bg-alpha
-
-#years
-	margin 15px
-	display block
-	height 25px
-	width 280px
-
-#years div
-	padding 2px
-	width 65px
-
-#months
-	margin 15px
-	width 280px
-	display block
-	height 100px
-
-#months div
-	padding 3px
-	width 85px
-
-#days
-	margin 15px
-	width 280px
-	display block
-
-#days div
-	padding 1px
-	width 25px
 
 /**
  * Search
@@ -348,18 +257,13 @@ body
 	border-top 10px solid $bg !important
 
 @-moz-document url-prefix()
-	.tab, .search-button,
-	#options a, .festivals, #date-selector, 
-	#years div,	#months div, #days div
+	.tab, .search-button, .festivals
 		font $fontSmall
 		padding 12px 14px 12px 14px
 	.search-field
 		font $fontSmall
 		padding $paddingFF
 		margin 2px 0 2px 0
-	#options .layers
-		padding-top 17px
-		padding-bottom 16px
 	.artist-data
 		font $fontSmall
 	.tag, #autocomplete div

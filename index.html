@@ -95,39 +95,6 @@
                     </div>
                 </section>
 
-                <section id="options" ng-controller="OptionsController">
-                    <a id="slide"><</a>
-                    <a id="markers" class="layers active"><b>markers</b></a>
-                    <a id="paths" class="layers active"><b>paths</b></a>
-                    <a id="go-top"><b>^</b></a>
-                    <div id="date-selector" 
-                         ng-show="pages.page" 
-                         ng-click="toggleDate()"
-                         ng-class="{'active' : options.show_date}"
-                         ng-cloak>
-                         Date
-                    </div>
-                    <section id="date"
-                             ng-cloak 
-                             ng-show="pages.page && options.show_date">
-                        <section id="years">
-                            <div ng-repeat="year in years">
-                                {{year}}
-                            </div>
-                        </section>
-                        <section id="months">
-                            <div ng-repeat="month in months">
-                                {{month}}
-                            </div>
-                        </section>
-                        <section id="days">
-                            <div ng-repeat="day in days">
-                                {{day}}
-                            </div>
-                        </section>          
-                    </section>
-                </section>
-
             </section>
 
         </section>
