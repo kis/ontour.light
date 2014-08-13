@@ -67,7 +67,7 @@ define(['./module'], function(controllers) {
 						'</div></div>');
 
 			event.marker.on('mouseover', function() {
-				$scope.showPopup(event);
+				$scope.showPopup(event, 0);
 			}, event);
 
 			event.marker.on('mouseout', function() {
@@ -85,9 +85,9 @@ define(['./module'], function(controllers) {
 					$scope.hidePopup(event);
 					event.selected = false;
 				} else {
-					$scope.showPopup(event);
+					$scope.showPopup(event, 1);
 					event.selected = true;
-					$scope.map.panTo(event.marker.getLatLng());
+
 					if(!$scope.$$phase) {
 						$scope.$apply();
 					}
@@ -95,12 +95,16 @@ define(['./module'], function(controllers) {
 			}
 		};
 
-		$scope.showPopup = function(event) {
+		$scope.showPopup = function(event, mode) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.addLayer(event.popup);
 				event.focused = true;
-				$scope.map.panTo(event.marker.getLatLng());
-				if(!$scope.$$phase) {
+
+				if (mode) {
+					$scope.map.panTo(event.marker.getLatLng());
+				}
+
+				if (!$scope.$$phase) {
 					$scope.$apply();
 				}
 			}
@@ -110,7 +114,8 @@ define(['./module'], function(controllers) {
 			if (event.popup != null && event.selected == false) {
 				$scope.map.removeLayer(event.popup);
 				event.focused = false;
-				if(!$scope.$$phase) {
+
+				if (!$scope.$$phase) {
 					$scope.$apply();
 				}
 			}
