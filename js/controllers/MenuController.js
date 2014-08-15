@@ -41,17 +41,6 @@ define(['./module'], function(controllers) {
 			$scope.menu.festivalsOnly = $scope.menu.festivalsOnly == 0 ? 1 : 0;
 		};
 
-		$scope.date = {
-			years: ['2014', '2015', '2016', '2017'],
-			months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
-				'August', 'September', 'October', 'November', 'December'],
-			days: []
-		};
-
-		for (var i = 1; i < 32; i++) {
-	        $scope.date.days.push(i);
-	    }
-
 	}]);
 
 });
