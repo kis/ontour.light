@@ -21,19 +21,6 @@ body {
 }
 
 /**
- * Sidebar and Controls
- */
-
-#sidebar {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 360px;
-	height: 100%;
-	z-index: 3;
-}
-
-/**
   * Tags, Years, Months, Days
   */
 
@@ -56,8 +43,8 @@ body {
 	opacity: 0;
 }
 
-.ng-enter.ng-enter-active {
-	@extend .fade-animation;
+.ng-enter-active {
+	@extend .fade-animation, .ng-enter;
 	opacity: 1;
 }
 
@@ -66,8 +53,8 @@ body {
 	opacity: 1;
 }
 
-.ng-leave.ng-leave-active {
-	@extend .fade-animation;
+.ng-leave-active {
+	@extend .fade-animation, .ng-leave;
 	opacity: 0;
 }
 
@@ -180,7 +167,7 @@ body {
 	top: 15px;
 	left: 15px;
 	bottom: 15px;
-	width: 92%;
+	width: 330px;
 	height: auto;
 	overflow-y: auto;
 	overflow-x: hidden;
