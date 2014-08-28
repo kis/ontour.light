@@ -39,7 +39,7 @@ body { overflow: hidden; }
 .search-button { cursor: pointer; padding: 12px 14px 12px 14px; width: 150px; line-height: 25pt; text-align: center; font: 14px Inconsolata; display: inline-block; color: white; background: rgba(16, 49, 90, 0.4); }
 .search-button:hover { background: #10315a !important; }
 
-.festivals { width: 20px; cursor: pointer; padding: 12px 1px 12px 10px; margin-left: 3px; font: 14px Inconsolata; display: inline-block; vertical-align: top; color: white; background: rgba(16, 49, 90, 0.4); }
+.festivals { width: 15px; cursor: pointer; padding: 12px 1px 12px 10px; margin-left: 3px; font: 14px Inconsolata; display: inline-block; vertical-align: top; color: white; background: rgba(16, 49, 90, 0.4); }
 .festivals:hover { background: #10315a !important; }
 
 /** Events */

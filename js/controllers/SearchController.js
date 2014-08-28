@@ -53,6 +53,7 @@ define(['./module'], function(controllers) {
 		};
 
 		$scope.reset = function() {
+			$scope.$broadcast('resetPaths');
 			$scope.events = [];
 			$scope.lastEvents = [];
 			$scope.pages = angular.copy($scope.pages_orig);

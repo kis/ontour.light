@@ -6,9 +6,16 @@ define(['./module'], function(controllers) {
 
 		$scope.$watchCollection('lastEvents', function() {
 			if ($scope.lastEvents.length) {
-				angular.forEach($scope.lastEvents, function(event) {
+				angular.forEach($scope.lastEvents, function(event, index, events) {
 					$scope.addIcon(event);
 					$scope.addMarker(event);
+
+					if ($scope.menu.activeTab.param !== 'geo' &&
+						events[index - 1] && 
+						event.marker) {
+						$scope.setPaths(event, events[index - 1]);
+					}
+
 					$scope.addPopup(event);
 				});
 
@@ -41,6 +48,32 @@ define(['./module'], function(controllers) {
 				$scope.cluster.addLayer(event.marker);
 			}
 		};
+
+		$scope.setPaths = function(event, eventPrev) {
+			event.path = L.polyline(
+				[event.marker.getLatLng(), 
+				eventPrev.marker.getLatLng()], 
+				{color: '#10315a', weight: 2, opacity: 1}
+			).addTo($scope.map);
+		};
+
+		$scope.addPaths = function() {
+			angular.forEach($scope.lastEvents, function(event, index, events) {
+				if (event.path) {
+					$scope.map.addLayer(event.path);
+				}
+			});
+		};
+
+		$scope.removePaths = function() {
+			angular.forEach($scope.lastEvents, function(event, index, events) {
+				if (event.path) {
+					$scope.map.removeLayer(event.path);
+				}
+			});
+		};
+
+		$scope.$on('resetPaths', $scope.removePaths);
 
 		$scope.addPopup = function(event) {
 
