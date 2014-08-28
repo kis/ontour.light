@@ -6,8 +6,9 @@
 
 ####Techologies
 
-Angular.js, Require.js, Mapbox.js, lastFM API, Geobytes API
-SASS, Grunt
+* Angular.js, Require.js, 
+* Mapbox.js, lastFM API, Geobytes API
+* SASS, Grunt
 
 ####Features
 * Search for shows by artist
