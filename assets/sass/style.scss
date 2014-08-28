@@ -280,3 +280,11 @@ body {
 .leaflet-popup-tip {
 	border-top: 10px solid $bg !important;
 }
+
+::selection {
+	background: #ffb7b7;
+}
+
+::-moz-selection {
+	background: #ffb7b7;
+}

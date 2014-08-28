@@ -72,4 +72,8 @@ body { overflow: hidden; }
 
 .leaflet-popup-tip { border-top: 10px solid #10315a !important; }
 
+::selection { background: #ffb7b7; }
+
+::-moz-selection { background: #ffb7b7; }
+
 /*# sourceMappingURL=styles.css.map */
