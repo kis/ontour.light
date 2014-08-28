@@ -12,7 +12,8 @@ define(['./module'], function(controllers) {
 
 					if ($scope.menu.activeTab.param !== 'geo' &&
 						events[index - 1] && 
-						event.marker) {
+						event.marker !== undefined &&
+						events[index - 1].marker !== undefined) {
 						$scope.setPaths(event, events[index - 1]);
 					}
 
@@ -58,7 +59,7 @@ define(['./module'], function(controllers) {
 		};
 
 		$scope.addPaths = function() {
-			angular.forEach($scope.lastEvents, function(event, index, events) {
+			angular.forEach($scope.events, function(event, index, events) {
 				if (event.path) {
 					$scope.map.addLayer(event.path);
 				}
@@ -66,7 +67,7 @@ define(['./module'], function(controllers) {
 		};
 
 		$scope.removePaths = function() {
-			angular.forEach($scope.lastEvents, function(event, index, events) {
+			angular.forEach($scope.events, function(event, index, events) {
 				if (event.path) {
 					$scope.map.removeLayer(event.path);
 				}

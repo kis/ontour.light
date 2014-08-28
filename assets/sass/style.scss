@@ -1,13 +1,13 @@
 
-@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 
 $bg: rgba(16,49,90,1);
 $bg-alpha: rgba(16,49,90,0.4);
 $bg-grey: rgba(223,223,223,0.5);
 $border: rgba(16,49,90,1);
 
-$font: 14px Inconsolata;
-$fontHeader: 18px Inconsolata;
+$font: 14px Roboto Condensed;
+$fontHeader: 18px Roboto Condensed;
 
 $padding: 12px 14px 12px 14px;
 $paddingLess: 6px 8px 6px 8px;
@@ -131,7 +131,7 @@ body {
 .search-button {
 	cursor: pointer;
 	padding: $padding;
-	width: 150px;
+	width: 135px;
 	line-height: 25pt;
 	text-align: center;
 	font: $font;
@@ -187,10 +187,9 @@ body {
 		background: $bg;
 		cursor: pointer;
 	}
-}
-
-.selected {
-	background: $bg !important;
+	.selected {
+		background: $bg !important;
+	}
 }
 
 .artist-pic {
@@ -203,7 +202,7 @@ body {
 .artist-data {
 	width: 210px;
 	font: $font;
-	margin: 5px 5px 5px 80px;
+	margin: 0px 5px 5px 80px;
 }
 
 #more {
@@ -234,11 +233,10 @@ body {
 	div {
 		padding: $paddingLess;
 		border-bottom: 1px solid $bg-alpha;
+		&:hover {
+			background: $bg-grey;
+		}
 	}
-}
-
-.hover {
-	background: $bg-grey;
 }
 
 /**
