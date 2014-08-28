@@ -2,8 +2,7 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		javascripts: ['public/js/**/**.js'],
-		styles: ['assets/styles/*.styl'],
-		php: ['app/**/**.php'],
+		styles: ['assets/sass/style.scss'],
 		jshint: {
 			client: ['Gruntfile.js', '<%= javascripts %>'],
 			options: {
@@ -22,26 +21,22 @@ module.exports = function (grunt) {
 			},
 			styles: {
 				files: ['<%= styles %>'],
-				tasks: ['stylus']
-			},
-			php: {
-				files: ['<%= php %>']
+				tasks: ['sass:dev']
 			},
 			app: {
 				files: 'public/js/**/*.js',
 				tasks: ['copy', 'requirejs']
 			}
 		},
-		stylus: {
-			compile: {
+		sass: {
+			dev: {
 				options: {
-					'include css': true,
-					'paths': [],
-					'compress': true
+					trace: true,
+					style: 'compact'
 				},
 				files: {
-					'css/styles.css': ['<%= styles %>']
-				}
+			    	'css/styles.css': 'assets/sass/style.scss'
+			  	}
 			}
 		},
 		requirejs: {
@@ -83,8 +78,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-	grunt.registerTask('default', ['requirejs']);
+	grunt.registerTask('default', ['sass']);
+	grunt.registerTask('rjs', ['requirejs']);
 };
