@@ -35,15 +35,16 @@ body { overflow: hidden; }
 
 /** Events */
 #events { position: absolute; top: 15px; left: 15px; bottom: 15px; width: 330px; height: auto; overflow-y: auto; overflow-x: hidden; font: 14px Roboto Condensed; color: white; background: transparent; z-index: 6; }
-#events .event-item { position: relative; height: 90px; border-bottom: 1px solid #10315a; padding: 12px 14px 12px 14px; background-color: rgba(16, 49, 90, 0.4); }
-#events .event-item:hover { background: #10315a; cursor: pointer; }
-#events .event-item .selected { background: #10315a !important; }
-#events .event-item .artist-pic { width: 50px; height: 50px; float: left; margin: 20px 15px 5px 0; }
-#events .event-item .artist-data { width: 210px; font: 14px Roboto Condensed; margin: 0px 5px 5px 80px; }
 #events .more { position: relative; width: 303px; height: 25px; padding: 18px 14px 12px 14px; background-color: rgba(16, 49, 90, 0.4); text-align: center; }
 #events .more:hover { background: #10315a; cursor: pointer; }
 
-/** Map */
+.event-item { position: relative; height: 90px; border-bottom: 1px solid #10315a; padding: 12px 14px 12px 14px; background-color: rgba(16, 49, 90, 0.4); }
+.event-item:hover { background: #10315a; cursor: pointer; }
+.event-item .artist-pic { width: 50px; height: 50px; float: left; margin: 20px 15px 5px 0; }
+.event-item .artist-data { width: 210px; font: 14px Roboto Condensed; margin: 0px 5px 5px 80px; }
+.event-item .selected { background: #10315a !important; }
+
+/** Map area */
 #map { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; z-index: 2; }
 
 /** Map elements */

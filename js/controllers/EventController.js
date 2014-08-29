@@ -91,7 +91,7 @@ define(['./module'], function(controllers) {
 				closeOnClick: false
 			})
 			.setLatLng(event.marker.getLatLng())
-			.setContent('<div id="event-item">' +
+			.setContent('<div class="event-item">' +
 						'<img src="' + event.image[1]['#text'] + '" class="artist-pic" />' +
 						'<div class="artist-data">' +
 						event.startDate + '<br/>' + 

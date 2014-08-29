@@ -189,35 +189,6 @@ body {
 	background: transparent;
 	z-index: 6;
 
-	.event-item {
-		position: relative;
-		height: 90px;
-		border-bottom: 1px solid $border;
-		padding: $padding;
-		background-color: $bg-alpha;
-		&:hover {
-			background: $bg;
-			cursor: pointer;
-		}
-
-		.selected {
-			background: $bg !important;
-		}
-		
-		.artist-pic {
-			width: 50px;
-			height: 50px;
-			float: left;
-			margin: 20px 15px 5px 0;
-		}
-
-		.artist-data {
-			width: 210px;
-			font: $font;
-			margin: 0px 5px 5px 80px;
-		}
-	}
-
 	.more {
 		position: relative;
 		width: 303px;
@@ -232,8 +203,37 @@ body {
 	}
 }
 
+.event-item {
+	position: relative;
+	height: 90px;
+	border-bottom: 1px solid $border;
+	padding: $padding;
+	background-color: $bg-alpha;
+	&:hover {
+		background: $bg;
+		cursor: pointer;
+	}
+
+	.artist-pic {
+		width: 50px;
+		height: 50px;
+		float: left;
+		margin: 20px 15px 5px 0;
+	}
+
+	.artist-data {
+		width: 210px;
+		font: $font;
+		margin: 0px 5px 5px 80px;
+	}
+
+	.selected {
+		background: $bg !important;
+	}
+}
+
 /**
- * Map
+ * Map area
  */
 
 #map {
