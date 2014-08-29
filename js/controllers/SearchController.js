@@ -30,7 +30,7 @@ define(['./module'], function(controllers) {
 					param         : $scope.menu.activeTab.param, 
 					location      : $scope.menu.searchValue, 
 					artist        : $scope.menu.searchValue, 
-					festivalsonly : $scope.menu.festivalsOnly, 
+					festivalsOnly : $scope.menu.festivalsOnly, 
 					tag 		  : $scope.menu.activeTag, 
 					page 		  : $scope.pages.page
 				})

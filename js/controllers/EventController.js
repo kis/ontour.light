@@ -54,7 +54,7 @@ define(['./module'], function(controllers) {
 			event.path = L.polyline(
 				[event.marker.getLatLng(), 
 				eventPrev.marker.getLatLng()], 
-				{color: '#10315a', weight: 2, opacity: 1}
+				{color: 'rgb(204,188,173)', weight: 2, opacity: 1}
 			).addTo($scope.map);
 		};
 
