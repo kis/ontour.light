@@ -61,4 +61,6 @@ body { overflow: hidden; }
 
 ::-moz-selection { background: #ffb7b7; }
 
+#about { position: absolute; right: 45%; bottom: 15px; z-index: 25; font: 14px Roboto Condensed; color: rgba(16, 49, 90, 0.4); }
+
 /*# sourceMappingURL=styles.css.map */
