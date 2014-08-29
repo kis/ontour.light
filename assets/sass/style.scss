@@ -4,7 +4,6 @@
 $bg: rgba(16,49,90,1);
 $bg-alpha: rgba(16,49,90,0.4);
 $bg-grey: rgba(223,223,223,0.5);
-$border: rgba(16,49,90,1);
 
 $font: 14px Roboto Condensed;
 $fontHeader: 18px Roboto Condensed;
@@ -127,7 +126,7 @@ body {
 	.tag {
 		padding: $paddingLess;
 		width: 94px;
-		border-bottom: 1px solid $border;
+		border-bottom: 1px solid $bg-alpha;
 
 		@include style();
 	}
@@ -179,9 +178,8 @@ body {
 
 .event-item {
 	position: relative;
-	height: 90px;
-	border-bottom: 1px solid $border;
-	padding: $padding;
+	height: 100px;
+	border-bottom: 1px solid $bg-alpha;
 	background-color: $bg-alpha;
 	&:hover {
 		background: $bg;
@@ -189,16 +187,16 @@ body {
 	}
 
 	.artist-pic {
-		width: 50px;
-		height: 50px;
+		width: 100px;
+		height: 100px;
 		float: left;
-		margin: 20px 15px 5px 0;
 	}
 
 	.artist-data {
-		width: 210px;
+		display: inline-block;
+		padding: 3px 0px 0px 10px;
 		font: $font;
-		margin: 0px 5px 5px 80px;
+		width: 180px;
 	}
 
 	.selected {
@@ -237,7 +235,7 @@ body {
 .leaflet-popup-content {
 	padding: 0px !important;
 	width: 285px !important;
-	height: 120px;
+	height: 100px;
 }
 
 .leaflet-popup-tip {
