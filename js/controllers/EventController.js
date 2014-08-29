@@ -28,9 +28,9 @@ define(['./module'], function(controllers) {
 		});
 
 		$scope.addIcon = function(event) {
-			if (event.image[1]['#text']) {
+			if (event.image[3]['#text']) {
 				event.icon = L.icon({
-					iconUrl: event.image[1]['#text'],
+					iconUrl: event.image[3]['#text'],
 					iconSize: $scope.menu.activeTab.param == 'geo' ? [75, 75] : [25, 25],
 					className: "dot"
 				});
