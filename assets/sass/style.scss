@@ -20,19 +20,6 @@ body {
 	overflow: hidden;
 }
 
-/**
-  * Tags, Years, Months, Days
-  */
-
-#tags {
-	position: relative;
-	width: 335px;
-	font: $font;
-	padding: 0px;
-	z-index: 5;
-	background: transparent;
-}
-
 .fade-animation {
 	-webkit-transition: 0.2s linear all;
 	transition: 0.2s linear all;
@@ -63,22 +50,6 @@ body {
 	left: 345px;
 }
 
-.tag {
-	cursor: pointer;
-	padding: $paddingLess;
-	width: 94px;
-	line-height: 25pt;
-	text-align: center;
-	font: $font;
-	border-bottom: 1px solid $border;
-	display: inline-block;
-	color: white;
-	background: $bg-alpha;
-	&:hover {
-		background: $bg !important;
-	}
-}
-
 /**
  * Search
  */
@@ -93,68 +64,110 @@ body {
 	z-index: 15;
 	clear: both;
 	background: transparent;
-}
 
-.tab {
-	cursor: pointer;
-	padding: $padding;
-	width: 137px;
-	line-height: 25pt;
-	text-align: center;
-	font: $font;
-	display: inline-block;
-	color: white;
-	background: $bg-alpha;
-	&:hover {
+	.tab {
+		cursor: pointer;
+		padding: $padding;
+		width: 137px;
+		line-height: 25pt;
+		text-align: center;
+		font: $font;
+		display: inline-block;
+		color: white;
+		background: $bg-alpha;
+		&:hover {
+			background: $bg !important;
+		}
+	}
+
+	.active {
 		background: $bg !important;
 	}
-}
 
-.active {
-	background: $bg !important;
-}
-
-.search-field {
-	width: 307px;
-	line-height: 25pt;
-	font: $font;
-	display: block;
-	padding: 11px 11px 11px 12px;
-	outline: none;
-	border: 0px;
-}
-
-.invalid {
-	background: $bg-alpha;
-}
-
-.search-button {
-	cursor: pointer;
-	padding: $padding;
-	width: 135px;
-	line-height: 25pt;
-	text-align: center;
-	font: $font;
-	display: inline-block;
-	color: white;
-	background: $bg-alpha;
-	&:hover {
-		background: $bg !important;
+	.search-field {
+		width: 307px;
+		line-height: 25pt;
+		font: $font;
+		display: block;
+		padding: 11px 11px 11px 12px;
+		outline: none;
+		border: 0px;
 	}
-}
 
-.festivals {
-	width: 15px;
-	cursor: pointer;
-	padding: 12px 1px 12px 10px;
-	margin-left: 3px;
-	font: $font;
-	display: inline-block;
-	vertical-align: top;
-	color: white;
-	background: $bg-alpha;
-	&:hover {
-		background: $bg !important;
+	.invalid {
+		background: $bg-alpha;
+	}
+
+	.autocomplete {
+		position: absolute;
+		z-index: 10;
+		font: $font;
+		line-height: 18pt;
+		width: 331px;
+		cursor: pointer;
+		background: white;
+		div {
+			padding: $paddingLess;
+			border-bottom: 1px solid $bg-alpha;
+			&:hover {
+				background: $bg-grey;
+			}
+		}
+	}
+
+	.tags {
+		position: relative;
+		width: 335px;
+		font: $font;
+		padding: 0px;
+		z-index: 5;
+		background: transparent;
+	}
+
+	.tag {
+		cursor: pointer;
+		padding: $paddingLess;
+		width: 94px;
+		line-height: 25pt;
+		text-align: center;
+		font: $font;
+		border-bottom: 1px solid $border;
+		display: inline-block;
+		color: white;
+		background: $bg-alpha;
+		&:hover {
+			background: $bg !important;
+		}
+	}
+
+	.search-button {
+		cursor: pointer;
+		padding: $padding;
+		width: 135px;
+		line-height: 25pt;
+		text-align: center;
+		font: $font;
+		display: inline-block;
+		color: white;
+		background: $bg-alpha;
+		&:hover {
+			background: $bg !important;
+		}
+	}
+
+	.festivals {
+		width: 15px;
+		cursor: pointer;
+		padding: 12px 1px 12px 10px;
+		margin-left: 3px;
+		font: $font;
+		display: inline-block;
+		vertical-align: top;
+		color: white;
+		background: $bg-alpha;
+		&:hover {
+			background: $bg !important;
+		}
 	}
 }
 
@@ -175,72 +188,52 @@ body {
 	color: white;
 	background: transparent;
 	z-index: 6;
-}
 
-#event-item {
-	position: relative;
-	height: 90px;
-	border-bottom: 1px solid $border;
-	padding: $padding;
-	background-color: $bg-alpha;
-	&:hover {
-		background: $bg;
-		cursor: pointer;
-	}
-	.selected {
-		background: $bg !important;
-	}
-}
-
-.artist-pic {
-	width: 50px;
-	height: 50px;
-	float: left;
-	margin: 20px 15px 5px 0;
-}
-
-.artist-data {
-	width: 210px;
-	font: $font;
-	margin: 0px 5px 5px 80px;
-}
-
-#more {
-	position: relative;
-	width: 303px;
-	height: 25px;
-	padding: 18px 14px 12px 14px;
-	background-color: $bg-alpha;
-	text-align: center;
-	&:hover {
-		background: $bg;
-		cursor: pointer;
-	}
-}
-
-/**
- * Autocomplete
- */
-
-#autocomplete {
-	position: absolute;
-	z-index: 10;
-	font: $font;
-	line-height: 18pt;
-	width: 331px;
-	cursor: pointer;
-	background: white;
-	div {
-		padding: $paddingLess;
-		border-bottom: 1px solid $bg-alpha;
+	.event-item {
+		position: relative;
+		height: 90px;
+		border-bottom: 1px solid $border;
+		padding: $padding;
+		background-color: $bg-alpha;
 		&:hover {
-			background: $bg-grey;
+			background: $bg;
+			cursor: pointer;
+		}
+
+		.selected {
+			background: $bg !important;
+		}
+		
+		.artist-pic {
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin: 20px 15px 5px 0;
+		}
+
+		.artist-data {
+			width: 210px;
+			font: $font;
+			margin: 0px 5px 5px 80px;
+		}
+	}
+
+	.more {
+		position: relative;
+		width: 303px;
+		height: 25px;
+		padding: 18px 14px 12px 14px;
+		background-color: $bg-alpha;
+		text-align: center;
+		&:hover {
+			background: $bg;
+			cursor: pointer;
 		}
 	}
 }
 
 /**
- * Map area
+ * Map
  */
 
 #map {
