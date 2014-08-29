@@ -54,6 +54,18 @@ body {
  * Search
  */
 
+@mixin style() {
+	font: $font;
+	display: inline-block;
+	background: $bg-alpha;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	&:hover {
+		background: $bg !important;
+	}
+}
+
 #search {
 	position: absolute;
 	top: 15px;
@@ -63,21 +75,12 @@ body {
 	padding: 0px;
 	z-index: 15;
 	clear: both;
-	background: transparent;
 
 	.tab {
-		cursor: pointer;
 		padding: $padding;
 		width: 137px;
-		line-height: 25pt;
-		text-align: center;
-		font: $font;
-		display: inline-block;
-		color: white;
-		background: $bg-alpha;
-		&:hover {
-			background: $bg !important;
-		}
+
+		@include style();
 	}
 
 	.active {
@@ -86,7 +89,6 @@ body {
 
 	.search-field {
 		width: 307px;
-		line-height: 25pt;
 		font: $font;
 		display: block;
 		padding: 11px 11px 11px 12px;
@@ -102,7 +104,6 @@ body {
 		position: absolute;
 		z-index: 10;
 		font: $font;
-		line-height: 18pt;
 		width: 331px;
 		cursor: pointer;
 		background: white;
@@ -121,53 +122,29 @@ body {
 		font: $font;
 		padding: 0px;
 		z-index: 5;
-		background: transparent;
 	}
 
 	.tag {
-		cursor: pointer;
 		padding: $paddingLess;
 		width: 94px;
-		line-height: 25pt;
-		text-align: center;
-		font: $font;
 		border-bottom: 1px solid $border;
-		display: inline-block;
-		color: white;
-		background: $bg-alpha;
-		&:hover {
-			background: $bg !important;
-		}
+
+		@include style();
 	}
 
 	.search-button {
-		cursor: pointer;
 		padding: $padding;
 		width: 135px;
-		line-height: 25pt;
-		text-align: center;
-		font: $font;
-		display: inline-block;
-		color: white;
-		background: $bg-alpha;
-		&:hover {
-			background: $bg !important;
-		}
+
+		@include style();
 	}
 
 	.festivals {
 		width: 15px;
-		cursor: pointer;
-		padding: 12px 1px 12px 10px;
+		padding: 12px 5px 12px 5px;
 		margin-left: 3px;
-		font: $font;
-		display: inline-block;
-		vertical-align: top;
-		color: white;
-		background: $bg-alpha;
-		&:hover {
-			background: $bg !important;
-		}
+
+		@include style();
 	}
 }
 
@@ -181,17 +158,14 @@ body {
 	left: 15px;
 	bottom: 15px;
 	width: 330px;
-	height: auto;
 	overflow-y: auto;
 	overflow-x: hidden;
 	font: $font;
 	color: white;
-	background: transparent;
 	z-index: 6;
 
 	.more {
 		position: relative;
-		width: 303px;
 		height: 25px;
 		padding: 18px 14px 12px 14px;
 		background-color: $bg-alpha;
@@ -233,7 +207,7 @@ body {
 }
 
 /**
- * Map area
+ * Map
  */
 
 #map {
@@ -246,10 +220,6 @@ body {
 	padding: 0px;
 	z-index: 2;
 }
-
-/**
-  * Map elements
-  */
 
 .dot {
 	border-radius: 50%;

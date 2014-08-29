@@ -16,26 +16,26 @@ body { overflow: hidden; }
 .slide-menu { left: 345px; }
 
 /** Search */
-#search { position: absolute; top: 15px; margin-left: 15px; width: 335px; font-size: 0; padding: 0px; z-index: 15; clear: both; background: transparent; }
-#search .tab { cursor: pointer; padding: 12px 14px 12px 14px; width: 137px; line-height: 25pt; text-align: center; font: 14px Roboto Condensed; display: inline-block; color: white; background: rgba(16, 49, 90, 0.4); }
+#search { position: absolute; top: 15px; margin-left: 15px; width: 335px; font-size: 0; padding: 0px; z-index: 15; clear: both; }
+#search .tab { padding: 12px 14px 12px 14px; width: 137px; font: 14px Roboto Condensed; display: inline-block; background: rgba(16, 49, 90, 0.4); color: white; cursor: pointer; text-align: center; }
 #search .tab:hover { background: #10315a !important; }
 #search .active { background: #10315a !important; }
-#search .search-field { width: 307px; line-height: 25pt; font: 14px Roboto Condensed; display: block; padding: 11px 11px 11px 12px; outline: none; border: 0px; }
+#search .search-field { width: 307px; font: 14px Roboto Condensed; display: block; padding: 11px 11px 11px 12px; outline: none; border: 0px; }
 #search .invalid { background: rgba(16, 49, 90, 0.4); }
-#search .autocomplete { position: absolute; z-index: 10; font: 14px Roboto Condensed; line-height: 18pt; width: 331px; cursor: pointer; background: white; }
+#search .autocomplete { position: absolute; z-index: 10; font: 14px Roboto Condensed; width: 331px; cursor: pointer; background: white; }
 #search .autocomplete div { padding: 6px 8px 6px 8px; border-bottom: 1px solid rgba(16, 49, 90, 0.4); }
 #search .autocomplete div:hover { background: rgba(223, 223, 223, 0.5); }
-#search .tags { position: relative; width: 335px; font: 14px Roboto Condensed; padding: 0px; z-index: 5; background: transparent; }
-#search .tag { cursor: pointer; padding: 6px 8px 6px 8px; width: 94px; line-height: 25pt; text-align: center; font: 14px Roboto Condensed; border-bottom: 1px solid #10315a; display: inline-block; color: white; background: rgba(16, 49, 90, 0.4); }
+#search .tags { position: relative; width: 335px; font: 14px Roboto Condensed; padding: 0px; z-index: 5; }
+#search .tag { padding: 6px 8px 6px 8px; width: 94px; border-bottom: 1px solid #10315a; font: 14px Roboto Condensed; display: inline-block; background: rgba(16, 49, 90, 0.4); color: white; cursor: pointer; text-align: center; }
 #search .tag:hover { background: #10315a !important; }
-#search .search-button { cursor: pointer; padding: 12px 14px 12px 14px; width: 135px; line-height: 25pt; text-align: center; font: 14px Roboto Condensed; display: inline-block; color: white; background: rgba(16, 49, 90, 0.4); }
+#search .search-button { padding: 12px 14px 12px 14px; width: 135px; font: 14px Roboto Condensed; display: inline-block; background: rgba(16, 49, 90, 0.4); color: white; cursor: pointer; text-align: center; }
 #search .search-button:hover { background: #10315a !important; }
-#search .festivals { width: 15px; cursor: pointer; padding: 12px 1px 12px 10px; margin-left: 3px; font: 14px Roboto Condensed; display: inline-block; vertical-align: top; color: white; background: rgba(16, 49, 90, 0.4); }
+#search .festivals { width: 15px; padding: 12px 5px 12px 5px; margin-left: 3px; font: 14px Roboto Condensed; display: inline-block; background: rgba(16, 49, 90, 0.4); color: white; cursor: pointer; text-align: center; }
 #search .festivals:hover { background: #10315a !important; }
 
 /** Events */
-#events { position: absolute; top: 15px; left: 15px; bottom: 15px; width: 330px; height: auto; overflow-y: auto; overflow-x: hidden; font: 14px Roboto Condensed; color: white; background: transparent; z-index: 6; }
-#events .more { position: relative; width: 303px; height: 25px; padding: 18px 14px 12px 14px; background-color: rgba(16, 49, 90, 0.4); text-align: center; }
+#events { position: absolute; top: 15px; left: 15px; bottom: 15px; width: 330px; overflow-y: auto; overflow-x: hidden; font: 14px Roboto Condensed; color: white; z-index: 6; }
+#events .more { position: relative; height: 25px; padding: 18px 14px 12px 14px; background-color: rgba(16, 49, 90, 0.4); text-align: center; }
 #events .more:hover { background: #10315a; cursor: pointer; }
 
 .event-item { position: relative; height: 90px; border-bottom: 1px solid #10315a; padding: 12px 14px 12px 14px; background-color: rgba(16, 49, 90, 0.4); }
@@ -44,10 +44,9 @@ body { overflow: hidden; }
 .event-item .artist-data { width: 210px; font: 14px Roboto Condensed; margin: 0px 5px 5px 80px; }
 .event-item .selected { background: #10315a !important; }
 
-/** Map area */
+/** Map */
 #map { position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; z-index: 2; }
 
-/** Map elements */
 .dot { border-radius: 50%; }
 
 .leaflet-container { color: white !important; }
