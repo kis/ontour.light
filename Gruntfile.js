@@ -42,8 +42,8 @@ module.exports = function (grunt) {
 		requirejs: {
 		    options: {
 				baseUrl: '.',
-				appDir: 'public/js',
-				mainConfigFile: 'public/js/main.js',
+				appDir: 'js',
+				mainConfigFile: 'js/main.js',
 				optimize: 'uglify',
 				generateSourceMaps: false,
 				preserveLicenseComments: false,
@@ -53,23 +53,17 @@ module.exports = function (grunt) {
 			 		{
 			  			name: 'main',
 			  			exclude: [
-			  			    "lib/jquery.min",
-			  			    "lib/mapbox",
-			  			    "lib/text",
-			  			    "lib/underscore-min",
-			  			    "lib/backbone-min",
-			  			    "lib/backbone.babysitter.min",
-			  			    "lib/backbone.wreqr.min",
-			  			    "lib/backbone.marionette.min",
-			  			    "lib/scrollbar.min",
-			  			    "lib/jquery.mousewheel"
+			  			    "vendor/angular.min",
+			  			    "vendor/angular-animate.min",
+			  			    "vendor/jquery.min",
+			  			    "vendor/require-min"
 			  			]
 			 		}
 				]
 		   	},
 		   	main: {
 				options: {
-			 		dir: 'public/build'
+			 		dir: 'build'
 				}
 		   	}
 		}
