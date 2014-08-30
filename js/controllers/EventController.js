@@ -10,6 +10,8 @@ define(['./module'], function(controllers) {
 					$scope.addIcon(event);
 					$scope.addMarker(event);
 
+					event.date = new Date(event.startDate);
+
 					if ($scope.menu.activeTab.param !== 'geo' &&
 						events[index - 1] && 
 						event.marker !== undefined &&
