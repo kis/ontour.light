@@ -63,4 +63,6 @@ body { overflow: hidden; }
 
 #about { position: absolute; right: 45%; bottom: 15px; z-index: 25; font: 14px Roboto Condensed; color: rgba(16, 49, 90, 0.4); }
 
+#social { position: absolute; right: 15px; top: 15px; z-index: 25; }
+
 /*# sourceMappingURL=styles.css.map */
