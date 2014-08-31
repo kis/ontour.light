@@ -32,7 +32,7 @@ module.exports = function (grunt) {
 			dev: {
 				options: {
 					trace: true,
-					style: 'compact'
+					style: 'compressed'
 				},
 				files: {
 			    	'css/styles.css': 'assets/sass/style.scss'
