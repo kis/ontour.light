@@ -2,7 +2,7 @@
 
 define(['./module'], function(controllers) {
 
-	controllers.controller('EventController', ['$scope', function($scope) {
+	controllers.controller('EventController', ['$scope', '$filter', function($scope, $filter) {
 
 		$scope.$watchCollection('lastEvents', function() {
 			if ($scope.lastEvents.length) {
@@ -10,7 +10,7 @@ define(['./module'], function(controllers) {
 					$scope.addIcon(event);
 					$scope.addMarker(event);
 
-					event.date = new Date(event.startDate);
+					event.date = $filter('date')(new Date(event.startDate), 'mediumDate');
 
 					if ($scope.menu.activeTab.param !== 'geo' &&
 						events[index - 1] && 
@@ -96,7 +96,7 @@ define(['./module'], function(controllers) {
 			.setContent('<div class="event-item">' +
 						'<img src="' + event.image[3]['#text'] + '" class="artist-pic" />' +
 						'<div class="artist-data">' +
-						event.startDate + '<br/>' + 
+						event.date + '<br/>' + 
 						event.artists.headliner + '<br/><br/>' +
 						event.venue.name + '<br/>' +
 						event.venue.location.city + ' ' + event.venue.location.country + 
