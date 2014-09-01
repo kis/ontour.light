@@ -30,7 +30,8 @@ body {
 }
 
 .ng-enter-active {
-	@extend .fade-animation, .ng-enter;
+	@extend .fade-animation;
+	@extend .ng-enter;
 	opacity: 1;
 }
 
@@ -40,7 +41,8 @@ body {
 }
 
 .ng-leave-active {
-	@extend .fade-animation, .ng-leave;
+	@extend .fade-animation;
+	@extend .ng-leave;
 	opacity: 0;
 }
 
