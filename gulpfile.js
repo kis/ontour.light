@@ -3,10 +3,14 @@ var gulp = require('gulp'),
 	minifyCss = require('gulp-minify-css'),
 	rename = require('gulp-rename');
 
+var paths = {
+	sass: ['assets/sass/styles.scss']
+};
+
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function () {
-	gulp.src('assets/sass/styles.scss')
+	gulp.src(paths.sass)
 	    .pipe(sass())
 	    .pipe(gulp.dest('css'))
 	    .pipe(minifyCss({
@@ -14,4 +18,8 @@ gulp.task('sass', function () {
 	    }))
 	    .pipe(rename({ extname: '.min.css' }))
 	    .pipe(gulp.dest('css'));
+});
+
+gulp.task('watch', function() {
+	gulp.watch(paths.sass, ['sass']);
 });
