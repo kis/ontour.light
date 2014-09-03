@@ -8,7 +8,7 @@
 
 * Angular.js, Require.js, 
 * Mapbox.js, lastFM API, Geobytes API
-* SASS, Grunt
+* SASS, Jade, Gulp
 
 ####Features
 * Search for shows by artist
