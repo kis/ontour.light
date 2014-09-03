@@ -1,7 +1,7 @@
 {
   "name": "ontour",
   "version": "0.2.0",
-  "description": "",
+  "description": "music trip planner",
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.10.0",
@@ -13,8 +13,10 @@
     "gulp": "~3.8.7",
     "gulp-minify-css": "~0.3.7",
     "gulp-sass": "~0.7.3",
-    "gulp-rename": "~1.2.0"
+    "gulp-rename": "~1.2.0",
+    "express": "~4.8.7",
+    "gulp-jade": "~0.7.0"
   },
-  "author": "Kirill Styopkin kirillstyopkin@gmail.com",
+  "author": "Kirill Stepkin kirillstyopkin@gmail.com",
   "license": "ISC"
 }
