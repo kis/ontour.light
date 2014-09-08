@@ -2,7 +2,9 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	minifyCss = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
-	jade = require('gulp-jade');
+	jade = require('gulp-jade'),
+	postcss = require('gulp-postcss'),
+	autoprefixer = require('autoprefixer-core');
 
 var paths = {
 	sass: ['public/assets/sass/styles.scss'],
@@ -14,6 +16,7 @@ gulp.task('default', ['sass', 'jade']);
 gulp.task('sass', function () {
 	gulp.src(paths.sass)
 	    .pipe(sass())
+	    .pipe(postcss([autoprefixer]))
 	    .pipe(gulp.dest('public/css'))
 	    .pipe(minifyCss({
 	      keepSpecialComments: 0

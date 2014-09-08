@@ -6,4 +6,8 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/welcome', function(req, res) {
+  res.render('welcome', { title: 'Ontour.im | Music Trip Planner' });
+});
+
 module.exports = router;

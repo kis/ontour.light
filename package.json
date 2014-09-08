@@ -21,7 +21,9 @@
     "morgan": "~1.2.3",
     "serve-favicon": "~2.0.1",
     "debug": "~1.0.4",
-    "ejs": "~0.8.5"
+    "ejs": "~0.8.5",
+    "gulp-postcss": "~1.0.2",
+    "autoprefixer-core": "~3.0.1"
   },
   "author": "Kirill Stepkin kirillstyopkin@gmail.com",
   "license": "ISC"
