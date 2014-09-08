@@ -5,27 +5,27 @@ var gulp = require('gulp'),
 	jade = require('gulp-jade');
 
 var paths = {
-	sass: ['assets/sass/styles.scss'],
-	jade: ['assets/jade/index.jade']
+	sass: ['public/assets/sass/styles.scss'],
+	jade: ['public/assets/jade/index.jade']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'jade']);
 
 gulp.task('sass', function () {
 	gulp.src(paths.sass)
 	    .pipe(sass())
-	    .pipe(gulp.dest('css'))
+	    .pipe(gulp.dest('public/css'))
 	    .pipe(minifyCss({
 	      keepSpecialComments: 0
 	    }))
 	    .pipe(rename({ extname: '.min.css' }))
-	    .pipe(gulp.dest('css'));
+	    .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('jade', function() {
-	gulp.src('assets/jade/index.jade')
+	gulp.src('public/assets/jade/index.jade')
     	.pipe(jade())
-    	.pipe(gulp.dest('.'))
+    	.pipe(gulp.dest('public'))
 });
 
 gulp.task('watch', function() {
