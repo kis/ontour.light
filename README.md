@@ -6,8 +6,8 @@
 
 ####Techologies
 
-* Angular.js, Require.js, 
-* Mapbox.js, lastFM API, Geobytes API
+* MongoDB, Express.js, Angular.js, Node.js
+* Require.js, Mapbox.js, lastFM API, Geobytes API
 * SASS, Jade, Gulp
 
 ####Features
