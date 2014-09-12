@@ -1,1 +1,0 @@
-"use strict";define(["angular","animate","./controllers/index","./services/index"],function(e,t){return e.module("App",["ngAnimate","ontour.controllers","ontour.services"])});
