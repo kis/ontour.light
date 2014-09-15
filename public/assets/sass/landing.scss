@@ -15,15 +15,29 @@ $color-hover: rgba(126,7,21,1);
 	opacity: 0.8;
 	overflow: hidden;
 	zoom: 0.7;
+	img {
+		width: 125px;
+		margin: 20px 20px 20px 20px;
+	}
+	* {
+		zoom: 2;
+	}
 }
 
-#welcome-pic > * {
-	zoom: 2;
-}
-
-#welcome-pic img {
-	width: 125px;
-	margin: 20px 20px 20px 20px;
+#welcome-words {
+	position: absolute;
+	left: 50%;
+	width: 70%;
+	color: $color;
+	font: $font;
+	@media screen and (min-width: 980px) {
+		margin-left: -15%;
+		top: 30%;
+	}
+	@media screen and (max-width: 980px) {
+		margin-left: -30%;
+		top: 5%;
+	}
 }
 
 #next-actions {
@@ -35,21 +49,20 @@ $color-hover: rgba(126,7,21,1);
 		top: 50%;
 	}
 	@media screen and (max-width: 980px) {
-		top: 10%;
+		top: 35%;
 	}
-}
-
-#next-actions a {
-	color: $color;
-	font: $font;
-	border: 5px solid $color;
-	border-radius: 7px 7px 7px 7px;
-	margin: 10px;
-	padding: 7px 25px 7px 25px;
-	cursor: pointer;
-	display: inline-block;
-	&:hover {
-		border: 5px solid $color-hover;
-		color: $color-hover;
+	a {
+		color: $color;
+		font: $font;
+		border: 5px solid $color;
+		border-radius: 7px 7px 7px 7px;
+		margin: 10px;
+		padding: 7px 25px 7px 25px;
+		cursor: pointer;
+		display: inline-block;
+		&:hover {
+			border: 5px solid $color-hover;
+			color: $color-hover;
+		}
 	}
 }
