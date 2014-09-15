@@ -1,3 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+
+$font: bold 36px Roboto Condensed;
+$color: rgba(126,7,21,0.8);
+$color-hover: rgba(126,7,21,1);
+
 #welcome-pic {
 	position: absolute;
 	top: 0;
@@ -6,8 +12,9 @@
 	height: 100%;
 	background: url(../img/registration.jpg);
 	background-position: bottom left;
+	opacity: 0.8;
 	overflow: hidden;
-	zoom: 0.4;
+	zoom: 0.7;
 }
 
 #welcome-pic > * {
@@ -17,4 +24,32 @@
 #welcome-pic img {
 	width: 125px;
 	margin: 20px 20px 20px 20px;
+}
+
+#next-actions {
+	position: absolute;
+	left: 50%;
+	width: 50%;
+	margin-left: -20%;
+	@media screen and (min-width: 980px) {
+		top: 50%;
+	}
+	@media screen and (max-width: 980px) {
+		top: 10%;
+	}
+}
+
+#next-actions a {
+	color: $color;
+	font: $font;
+	border: 5px solid $color;
+	border-radius: 7px 7px 7px 7px;
+	margin: 10px;
+	padding: 7px 25px 7px 25px;
+	cursor: pointer;
+	display: inline-block;
+	&:hover {
+		border: 5px solid $color-hover;
+		color: $color-hover;
+	}
 }

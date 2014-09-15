@@ -3,10 +3,13 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
 
 var routes = require('./app/routes/index');
 var users = require('./app/routes/users');
+
+mongoose.connect('mongodb://localhost:27017/ontour');
 
 var app = express();
 

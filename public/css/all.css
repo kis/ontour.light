@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 #welcome-pic {
   position: absolute;
   top: 0;
@@ -6,8 +7,9 @@
   height: 100%;
   background: url(../img/registration.jpg);
   background-position: bottom left;
+  opacity: 0.8;
   overflow: hidden;
-  zoom: 0.4; }
+  zoom: 0.7; }
 
 #welcome-pic > * {
   zoom: 2; }
@@ -16,7 +18,32 @@
   width: 125px;
   margin: 20px 20px 20px 20px; }
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmRpbmcuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usb0JBQW1CO0VBQ25CLFFBQU87RUFDUCxTQUFRO0VBQ1IsYUFBWTtFQUNaLGNBQWE7RUFDYiwwQ0FBeUM7RUFDekMsa0NBQWlDO0VBQ2pDLGtCQUFpQjtFQUNqQixXQUFVLEVBQUU7O0FBRWQ7RUFDRSxTQUFRLEVBQUU7O0FBRVo7RUFDRSxjQUFhO0VBQ2IsNkJBQTRCLEVBQUUiLCJmaWxlIjoidG8uY3NzIn0= */
+#next-actions {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  margin-left: -20%; }
+  @media screen and (min-width: 980px) {
+    #next-actions {
+      top: 50%; } }
+  @media screen and (max-width: 980px) {
+    #next-actions {
+      top: 10%; } }
+
+#next-actions a {
+  color: rgba(126, 7, 21, 0.8);
+  font: bold 36px Roboto Condensed;
+  border: 5px solid rgba(126, 7, 21, 0.8);
+  border-radius: 7px 7px 7px 7px;
+  margin: 10px;
+  padding: 7px 25px 7px 25px;
+  cursor: pointer;
+  display: inline-block; }
+  #next-actions a:hover {
+    border: 5px solid #7e0715;
+    color: #7e0715; }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmRpbmcuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLHNFQUFxRTtBQUNyRTtFQUNFLG9CQUFtQjtFQUNuQixRQUFPO0VBQ1AsU0FBUTtFQUNSLGFBQVk7RUFDWixjQUFhO0VBQ2IsMENBQXlDO0VBQ3pDLGtDQUFpQztFQUNqQyxjQUFhO0VBQ2Isa0JBQWlCO0VBQ2pCLFdBQVUsRUFBRTs7QUFFZDtFQUNFLFNBQVEsRUFBRTs7QUFFWjtFQUNFLGNBQWE7RUFDYiw2QkFBNEIsRUFBRTs7QUFFaEM7RUFDRSxvQkFBbUI7RUFDbkIsV0FBVTtFQUNWLFlBQVc7RUFDWCxtQkFBa0IsRUFBRTtFQUNwQjtJQUNFO01BQ0UsVUFBUyxFQUFFLEVBQUU7RUFDakI7SUFDRTtNQUNFLFVBQVMsRUFBRSxFQUFFOztBQUVuQjtFQUNFLDhCQUE2QjtFQUM3QixrQ0FBaUM7RUFDakMseUNBQXdDO0VBQ3hDLGdDQUErQjtFQUMvQixjQUFhO0VBQ2IsNEJBQTJCO0VBQzNCLGlCQUFnQjtFQUNoQix1QkFBc0IsRUFBRTtFQUN4QjtJQUNFLDJCQUEwQjtJQUMxQixnQkFBZSxFQUFFIiwiZmlsZSI6InRvLmNzcyJ9 */
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
