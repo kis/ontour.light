@@ -31,7 +31,7 @@ $color-hover: rgba(126,7,21,1);
 	color: $color;
 	font: $font;
 	@media screen and (min-width: 980px) {
-		margin-left: -15%;
+		margin-left: -18%;
 		top: 30%;
 	}
 	@media screen and (max-width: 980px) {
@@ -59,6 +59,7 @@ $color-hover: rgba(126,7,21,1);
 		margin: 10px;
 		padding: 7px 25px 7px 25px;
 		cursor: pointer;
+		text-decoration: none;
 		display: inline-block;
 		&:hover {
 			border: 5px solid $color-hover;
