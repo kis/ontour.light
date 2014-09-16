@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
-#welcome-pic {
+#landing-pic {
   position: absolute;
   top: 0;
   left: 0;
@@ -10,53 +10,82 @@
   opacity: 0.8;
   overflow: hidden;
   zoom: 0.7; }
-  #welcome-pic img {
-    width: 125px;
-    margin: 20px 20px 20px 20px; }
-  #welcome-pic * {
-    zoom: 2; }
 
-#welcome-words {
+#landing-head {
+  position: absolute;
+  top: 15px;
+  right: 15px; }
+  #landing-head a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: rgba(126, 7, 21, 0.8);
+    font: bold 24px Roboto Condensed; }
+    #landing-head a:hover {
+      border-bottom: 3px solid rgba(126, 7, 21, 0.8); }
+
+#landing-actions {
   position: absolute;
   left: 50%;
-  width: 70%;
+  margin-left: -22%;
   color: rgba(126, 7, 21, 0.8);
   font: bold 36px Roboto Condensed; }
   @media screen and (min-width: 980px) {
-    #welcome-words {
-      margin-left: -20%;
-      top: 30%; } }
+    #landing-actions {
+      top: 33%; } }
   @media screen and (max-width: 980px) {
-    #welcome-words {
-      font: bold 24px Roboto Condensed;
-      margin-left: -30%;
-      top: 5%; } }
-
-#next-actions {
-  position: absolute;
-  left: 50%;
-  width: 50%;
-  margin-left: -21%; }
-  @media screen and (min-width: 720px) {
-    #next-actions {
-      top: 50%; } }
-  @media screen and (max-width: 720px) {
-    #next-actions {
-      top: 30%; } }
-  #next-actions a {
+    #landing-actions {
+      top: 10%; } }
+  #landing-actions .landing-words {
+    margin-bottom: 30px; }
+    @media screen and (min-width: 980px) {
+      #landing-actions .landing-words {
+        margin-left: 2%; } }
+    @media screen and (max-width: 980px) {
+      #landing-actions .landing-words {
+        margin-left: -10%;
+        font: bold 24px Roboto Condensed; } }
+  #landing-actions a {
     color: rgba(126, 7, 21, 0.8);
-    font: bold 36px Roboto Condensed;
     border: 5px solid rgba(126, 7, 21, 0.8);
     margin: 10px;
     padding: 7px 25px 7px 25px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block; }
-    #next-actions a:hover {
+    #landing-actions a:hover {
       border: 5px solid #7e0715;
       color: #7e0715; }
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmRpbmcuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLHNFQUFxRTtBQUNyRTtFQUNFLG9CQUFtQjtFQUNuQixRQUFPO0VBQ1AsU0FBUTtFQUNSLGFBQVk7RUFDWixjQUFhO0VBQ2IsMENBQXlDO0VBQ3pDLGtDQUFpQztFQUNqQyxjQUFhO0VBQ2Isa0JBQWlCO0VBQ2pCLFdBQVUsRUFBRTtFQUNaO0lBQ0UsY0FBYTtJQUNiLDZCQUE0QixFQUFFO0VBQ2hDO0lBQ0UsU0FBUSxFQUFFOztBQUVkO0VBQ0Usb0JBQW1CO0VBQ25CLFdBQVU7RUFDVixZQUFXO0VBQ1gsOEJBQTZCO0VBQzdCLGtDQUFpQyxFQUFFO0VBQ25DO0lBQ0U7TUFDRSxtQkFBa0I7TUFDbEIsVUFBUyxFQUFFLEVBQUU7RUFDakI7SUFDRTtNQUNFLGtDQUFpQztNQUNqQyxtQkFBa0I7TUFDbEIsU0FBUSxFQUFFLEVBQUU7O0FBRWxCO0VBQ0Usb0JBQW1CO0VBQ25CLFdBQVU7RUFDVixZQUFXO0VBQ1gsbUJBQWtCLEVBQUU7RUFDcEI7SUFDRTtNQUNFLFVBQVMsRUFBRSxFQUFFO0VBQ2pCO0lBQ0U7TUFDRSxVQUFTLEVBQUUsRUFBRTtFQUNqQjtJQUNFLDhCQUE2QjtJQUM3QixrQ0FBaUM7SUFDakMseUNBQXdDO0lBQ3hDLGNBQWE7SUFDYiw0QkFBMkI7SUFDM0IsaUJBQWdCO0lBQ2hCLHVCQUFzQjtJQUN0Qix1QkFBc0IsRUFBRTtJQUN4QjtNQUNFLDJCQUEwQjtNQUMxQixnQkFBZSxFQUFFIiwiZmlsZSI6InRvLmNzcyJ9 */
+#landing-form {
+  position: absolute;
+  left: 50%; }
+  @media screen and (min-width: 980px) {
+    #landing-form {
+      top: 30%;
+      margin-left: -16%; } }
+  @media screen and (max-width: 980px) {
+    #landing-form {
+      top: 20%;
+      margin-left: -30%; } }
+  #landing-form .landing-data {
+    padding: 7px 25px 7px 25px;
+    display: block;
+    border: 5px solid rgba(126, 7, 21, 0.8);
+    color: rgba(126, 7, 21, 0.8);
+    background: transparent;
+    outline: none;
+    font: bold 36px Roboto Condensed;
+    margin-bottom: 10px; }
+    @media screen and (min-width: 720px) {
+      #landing-form .landing-data {
+        top: 30%;
+        width: 300px; } }
+    @media screen and (max-width: 720px) {
+      #landing-form .landing-data {
+        top: 20%;
+        width: 250px; } }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmRpbmcuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLHNFQUFxRTtBQUNyRTtFQUNFLG9CQUFtQjtFQUNuQixRQUFPO0VBQ1AsU0FBUTtFQUNSLGFBQVk7RUFDWixjQUFhO0VBQ2IsMENBQXlDO0VBQ3pDLGtDQUFpQztFQUNqQyxjQUFhO0VBQ2Isa0JBQWlCO0VBQ2pCLFdBQVUsRUFBRTs7QUFFZDtFQUNFLG9CQUFtQjtFQUNuQixXQUFVO0VBQ1YsYUFBWSxFQUFFO0VBQ2Q7SUFDRSxvQkFBbUI7SUFDbkIsdUJBQXNCO0lBQ3RCLDhCQUE2QjtJQUM3QixrQ0FBaUMsRUFBRTtJQUNuQztNQUNFLGdEQUErQyxFQUFFOztBQUV2RDtFQUNFLG9CQUFtQjtFQUNuQixXQUFVO0VBQ1YsbUJBQWtCO0VBQ2xCLDhCQUE2QjtFQUM3QixrQ0FBaUMsRUFBRTtFQUNuQztJQUNFO01BQ0UsVUFBUyxFQUFFLEVBQUU7RUFDakI7SUFDRTtNQUNFLFVBQVMsRUFBRSxFQUFFO0VBQ2pCO0lBQ0UscUJBQW9CLEVBQUU7SUFDdEI7TUFDRTtRQUNFLGlCQUFnQixFQUFFLEVBQUU7SUFDeEI7TUFDRTtRQUNFLG1CQUFrQjtRQUNsQixrQ0FBaUMsRUFBRSxFQUFFO0VBQzNDO0lBQ0UsOEJBQTZCO0lBQzdCLHlDQUF3QztJQUN4QyxjQUFhO0lBQ2IsNEJBQTJCO0lBQzNCLGlCQUFnQjtJQUNoQix1QkFBc0I7SUFDdEIsdUJBQXNCLEVBQUU7SUFDeEI7TUFDRSwyQkFBMEI7TUFDMUIsZ0JBQWUsRUFBRTs7QUFFdkI7RUFDRSxvQkFBbUI7RUFDbkIsV0FBVSxFQUFFO0VBQ1o7SUFDRTtNQUNFLFVBQVM7TUFDVCxtQkFBa0IsRUFBRSxFQUFFO0VBQzFCO0lBQ0U7TUFDRSxVQUFTO01BQ1QsbUJBQWtCLEVBQUUsRUFBRTtFQUMxQjtJQUNFLDRCQUEyQjtJQUMzQixnQkFBZTtJQUNmLHlDQUF3QztJQUN4Qyw4QkFBNkI7SUFDN0IseUJBQXdCO0lBQ3hCLGVBQWM7SUFDZCxrQ0FBaUM7SUFDakMscUJBQW9CLEVBQUU7SUFDdEI7TUFDRTtRQUNFLFVBQVM7UUFDVCxjQUFhLEVBQUUsRUFBRTtJQUNyQjtNQUNFO1FBQ0UsVUFBUztRQUNULGNBQWEsRUFBRSxFQUFFIiwiZmlsZSI6InRvLmNzcyJ9 */
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }

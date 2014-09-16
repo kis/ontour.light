@@ -13,8 +13,13 @@ html
 	body
 		section(id="landing-pic")
 
-		section(id="landing-actions")
-			div(class="landing-words") Follow your favorite band's <br/> shows / tours / festivals / local events
+		section(id="landing-head")
+			a(href="/welcome") Home
 			a(id="sign-in", href="/signin") Sign in
 			a(id="sign-up", href="/signup") Sign up
 			a(id="try", href="/") Taste it
+
+		form(method="POST", id="landing-form")
+			input(class="landing-data", type="text", name="login", placeholder="Login")
+			input(class="landing-data", type="password", name="password", placeholder="Password")
+			button(class="landing-data", type="submit") Sign in
