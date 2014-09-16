@@ -15,7 +15,7 @@ $color-hover: rgba(126,7,21,1);
 	background-position: bottom left;
 	opacity: 0.8;
 	overflow: hidden;
-	zoom: 0.7;
+	zoom: 0.4;
 }
 
 #landing-head {
@@ -74,11 +74,11 @@ $color-hover: rgba(126,7,21,1);
 	position: absolute;
 	left: 50%;
 	@media screen and (min-width: 980px) {
-		top: 30%;
+		top: 22%;
 		margin-left: -16%;
 	}
 	@media screen and (max-width: 980px) {
-		top: 20%;
+		top: 18%;
 		margin-left: -30%;
 	}
 	.landing-data {
