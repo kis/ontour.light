@@ -2,23 +2,23 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  	res.render('index', { title: 'Express' });
+  	res.render('index', { title: 'Ontour' });
 });
 
 router.get('/welcome', function(req, res) {
-  	res.render('welcome', { title: 'Express' });
+  	res.render('landing/welcome', { title: 'Ontour' });
 });
 
 router.get('/signin', function(req, res) {
-  	res.render('signin', { title: 'Express' });
+  	res.render('landing/signin', { title: 'Ontour' });
 });
 
 router.get('/signup', function(req, res) {
-  	res.render('signup', { title: 'Express' });
+  	res.render('landing/signup', { title: 'Ontour' });
 });
 
 router.get('/success', function(req, res) {
-  	res.render('success', { title: 'Express' });
+  	res.render('landing/success', { title: 'Ontour' });
 });
 
 module.exports = router;
