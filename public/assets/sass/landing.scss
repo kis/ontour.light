@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 
 $font: bold 36px Roboto Condensed;
+$font-small: bold 24px Roboto Condensed;
 $color: rgba(126,7,21,0.8);
 $color-hover: rgba(126,7,21,1);
 
@@ -31,10 +32,11 @@ $color-hover: rgba(126,7,21,1);
 	color: $color;
 	font: $font;
 	@media screen and (min-width: 980px) {
-		margin-left: -18%;
+		margin-left: -20%;
 		top: 30%;
 	}
 	@media screen and (max-width: 980px) {
+		font: $font-small;
 		margin-left: -30%;
 		top: 5%;
 	}
@@ -44,18 +46,17 @@ $color-hover: rgba(126,7,21,1);
 	position: absolute;
 	left: 50%;
 	width: 50%;
-	margin-left: -20%;
-	@media screen and (min-width: 980px) {
+	margin-left: -21%;
+	@media screen and (min-width: 720px) {
 		top: 50%;
 	}
-	@media screen and (max-width: 980px) {
-		top: 35%;
+	@media screen and (max-width: 720px) {
+		top: 30%;
 	}
 	a {
 		color: $color;
 		font: $font;
 		border: 5px solid $color;
-		border-radius: 7px 7px 7px 7px;
 		margin: 10px;
 		padding: 7px 25px 7px 25px;
 		cursor: pointer;
