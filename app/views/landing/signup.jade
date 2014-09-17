@@ -6,7 +6,7 @@ section(id="landing-head")
 	a(id="sign-up", href="/signup") Sign up
 	a(id="try", href="/") Taste it
 
-form(method="POST", id="landing-form", action="/api/users")
+form(method="POST", action="/api/users", id="landing-form")
 	input(class="landing-data", type="email", name="email", placeholder="Email")
 	input(class="landing-data", type="text", name="login", placeholder="Login")
 	input(class="landing-data", type="password", name="password", placeholder="Password")
