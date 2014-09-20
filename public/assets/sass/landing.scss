@@ -104,4 +104,10 @@ $color-hover: rgba(126,7,21,1);
 			width: 250px;
 		}
 	}
+	.invalid {
+		background: rgba(123,28,39,0.5)
+	}
+	.valid {
+		background: rgba(62,114,41,0.5)
+	}
 }
