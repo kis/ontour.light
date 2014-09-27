@@ -8,4 +8,11 @@ ontour.controller('LandingController', ['$scope', function ($scope) {
 		}
 	};
 
+	$scope.submitForm = function() {
+		$scope.regform.email.submitted = true;
+		$scope.regform.login.submitted = true;
+		$scope.regform.password.submitted = true;
+		$scope.regform.password_repeat.submitted = true;
+	};
+
 }]);
