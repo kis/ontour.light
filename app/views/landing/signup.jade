@@ -9,7 +9,8 @@ section(id="landing-head")
 form(id="landing-form", 
 	 name="regform", 
 	 ng-submit="submitRegistration()", 
-	 ng-controller="LandingController")
+	 ng-controller="LandingController",
+	 novalidate)
 	input(class="landing-data", 
 		  type="email", 
 		  name="email", 

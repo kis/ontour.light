@@ -9,7 +9,8 @@ section(id="landing-head")
 form(id="landing-form",
 	 name="loginform",
 	 ng-controller="LandingController",
-	 ng-submit="submitLogin()")
+	 ng-submit="submitLogin()",
+	 novalidate)
 	input(class="landing-data", 
 		  type="text", 
 		  name="login", 
