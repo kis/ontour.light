@@ -10,6 +10,7 @@ html
         link(rel="stylesheet", href="css/normalize.css")
         link(rel="stylesheet", href="css/all.min.css")
         link(rel="stylesheet", href="https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css")
+        link(rel="stylesheet", href="lib/font-awesome/css/font-awesome.min.css")
     
     body(ng-controller="MapController")
         section(ng-controller="MenuController")
@@ -83,16 +84,16 @@ html
 
         section(id="social")
             a(href="https://plus.google.com/share?url=http://ontour.im", onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-                img(src="img/G.png", alt="Share on Google+")
+                <i class="fa fa-google-plus fa-2x"></i>
 
             a(href="https://twitter.com/share", target="_blank")
-                img(src="img/Twitter.png", alt="Twit")
+                <i class="fa fa-twitter fa-2x"></i>
 
             a(href="http://vk.com/share.php?url=http://ontour.im&title=Ontour.im | Music Trip Planner&description=Follow the shows of your favourite bands&image=http://www.ontour.im/img/social.jpg", target="_blank")
-                img(src="img/VK.png", alt="Поделиться")
+                <i class="fa fa-vk fa-2x"></i>
 
             a(id="share", href="http://www.facebook.com/sharer.php?u=http://ontour.im", target="_blank")
-                img(src="img/FB.png")
+                <i class="fa fa-facebook fa-2x"></i>
 
         section(id="landing-head")
             a(href="http://localhost:3000/welcome") Ontour
