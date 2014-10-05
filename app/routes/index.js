@@ -21,4 +21,8 @@ router.get('/success', function(req, res) {
   	res.render('landing/success', { title: 'Ontour' });
 });
 
+router.get('/about', function(req, res) {
+  	res.render('landing/about', { title: 'Ontour' });
+});
+
 module.exports = router;
