@@ -1,4 +1,4 @@
-# LastFM - Music Trip Planner
+# Music Trip Planner
 
 ![alt text](https://raw.githubusercontent.com/kstyopkin/ontour/master/public/promo.png)
 
