@@ -1,4 +1,4 @@
-# LastFM - Music Trip Planner
+# Music Trip Planner
 
 ![alt text](https://raw.githubusercontent.com/kstyopkin/ontour/master/public/promo.png)
 
@@ -16,6 +16,3 @@
 * Optional search for festivals only
 * Filter by year/month/day
 * Single page app
-
-####License
-MIT © Kirill Stepkin
