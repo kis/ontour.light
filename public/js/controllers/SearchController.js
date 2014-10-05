@@ -4,6 +4,8 @@ define(['./module'], function(controllers) {
 
 	controllers.controller('SearchController', ['$scope', 'SearchService', function($scope, SearchService) {
 
+		$scope.searchStatus = false;
+
 		$scope.events = [];
 
 		$scope.lastEvents = [];
@@ -26,6 +28,8 @@ define(['./module'], function(controllers) {
 			if ($scope.pages.page < $scope.pages.totalPages && $scope.menu.searchValue) {
 				$scope.pages.page++;
 
+				$scope.searchStatus = true;
+
 				SearchService.search({
 					param         : $scope.menu.activeTab.param, 
 					location      : $scope.menu.searchValue, 
@@ -35,6 +39,8 @@ define(['./module'], function(controllers) {
 					page 		  : $scope.pages.page
 				})
 				.success(function(response) {
+					$scope.searchStatus = false;
+					
 					if (response.error == 8 || 
 						typeof response.events == 'undefined' || 
 						response.events.total == 0) {

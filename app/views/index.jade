@@ -76,8 +76,9 @@ html
                     div(class="more",
                         ng-click="nextPage()",
                         ng-show="events",
-                        ng-cloak) {{pages.page}}/{{pages.totalPages}} More
-
+                        ng-cloak) 
+                        {{pages.page}}/{{pages.totalPages}} More <i ng-cloak ng-show="searchStatus" class="fa fa-spinner fa-spin"></i>
+ 
         section(id="map")
 
         section(id="about") Ontour 2014 Kirill Stepkin
