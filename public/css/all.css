@@ -350,7 +350,7 @@ body {
 #social {
   position: absolute;
   right: 15px;
-  top: 55px;
+  top: 15px;
   z-index: 25; }
   #social a {
     display: inline-block;
