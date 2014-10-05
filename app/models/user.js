@@ -1,8 +1,18 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('User', {
-	'email': String,
-	'login': String,
-	'password': String,
-	'password-repeat': String
+	'email': {
+	    type: String,
+	    unique: true,
+		required: true
+	},
+	'login': {
+	    type: String,
+	    unique: true,
+		required: true
+	},
+	'password': {
+    	type: String,
+    	required: true
+  	}
 });

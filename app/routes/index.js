@@ -1,28 +1,13 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'),
+	router = express.Router(),
+	requireTree = require('require-tree'),
+	controllers = requireTree('../controllers');
 
-router.get('/', function(req, res) {
-  	res.render('index', { title: 'Ontour' });
-});
-
-router.get('/welcome', function(req, res) {
-  	res.render('landing/welcome', { title: 'Ontour' });
-});
-
-router.get('/signin', function(req, res) {
-  	res.render('landing/signin', { title: 'Ontour' });
-});
-
-router.get('/signup', function(req, res) {
-  	res.render('landing/signup', { title: 'Ontour' });
-});
-
-router.get('/success', function(req, res) {
-  	res.render('landing/success', { title: 'Ontour' });
-});
-
-router.get('/about', function(req, res) {
-  	res.render('landing/about', { title: 'Ontour' });
-});
+router.get('/', controllers.render('index'));
+router.get('/welcome', controllers.render('landing/welcome'));
+router.get('/signin', controllers.render('landing/signin'));
+router.get('/signup', controllers.render('landing/signup'));
+router.get('/success', controllers.render('landing/success'));
+router.get('/about', controllers.render('landing/about'));
 
 module.exports = router;

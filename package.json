@@ -18,6 +18,7 @@
     "serve-favicon": "~2.0.1",
     "debug": "~1.0.4",
     "mongoose": "~3.8.16",
+    "require-tree": "~0.3.2",
     "password-hash": "~1.2.2"
   },
   "author": "Kirill Stepkin kirillstyopkin@gmail.com",
