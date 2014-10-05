@@ -16,6 +16,3 @@
 * Optional search for festivals only
 * Filter by year/month/day
 * Single page app
-
-####License
-MIT © Kirill Stepkin
