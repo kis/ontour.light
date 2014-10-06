@@ -4,7 +4,8 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    passport = require('passport');
 
 var routes = require('./app/routes/index');
 var users = require('./app/routes/users');
@@ -25,8 +26,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var auth = require('./app/setup/auth');
+
+// set up authentication strategy
+passport.use(auth.authenticator());
+passport.serializeUser(auth.serialize);
+passport.deserializeUser(auth.deserialize);
+
 app.use('/', routes);
-app.use('/welcome', routes);
+// app.use('/welcome', routes);
 
 app.use('/', users);
 
