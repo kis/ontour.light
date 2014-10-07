@@ -1,11 +1,15 @@
 var ontour = angular.module('ontour', []);
 
-ontour.controller('LandingController', ['$scope', function ($scope) {
+ontour.controller('LandingController', ['$scope', '$http', function ($scope, $http) {
 	
 	$scope.user = {};
 
 	$scope.submitRegistration = function() {
 		console.log($scope.user);
+
+		$http.post('/register', $scope.user).success(function(data) {
+			console.log('yeee');
+		});
 	};
 
 	$scope.submitLogin = function() {
@@ -14,7 +18,6 @@ ontour.controller('LandingController', ['$scope', function ($scope) {
 
 	$scope.signup = function() {
 		$scope.regform.email.submitted = true;
-		$scope.regform.login.submitted = true;
 		$scope.regform.password.submitted = true;
 		$scope.regform.password_repeat.submitted = true;
 	};

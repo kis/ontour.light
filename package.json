@@ -21,7 +21,8 @@
     "password-hash": "~1.2.2",
     "require-tree": "~0.3.2",
     "passport-local": "~0.1.6",
-    "passport": "~0.1.17"
+    "passport": "~0.1.17",
+    "express-session": "~1.0.0"
   },
   "author": "Kirill Stepkin kirillstyopkin@gmail.com",
   "license": "ISC"

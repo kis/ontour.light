@@ -4,6 +4,7 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
+    session = require('express-session'),
     mongoose = require('mongoose'),
     passport = require('passport');
 
@@ -28,14 +29,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var auth = require('./app/setup/auth');
 
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session());
+
 // set up authentication strategy
 passport.use(auth.authenticator());
 passport.serializeUser(auth.serialize);
 passport.deserializeUser(auth.deserialize);
 
 app.use('/', routes);
-// app.use('/welcome', routes);
-
 app.use('/', users);
 
 // catch 404 and forward to error handler

@@ -1,14 +1,39 @@
 var User = require('../models/user');
 
-var passwordHash = require('password-hash');
+var passwordHash = require('password-hash'),
+	  passport = require('passport');
 
-module.exports.create = function(req, res) {
-	var user = new User(req.body);
-	user.password = passwordHash.generate(req.body.password);
-	user['password-repeat'] = passwordHash.generate(req.body['password-repeat']);
+module.exports.login = function(req, res, next) {
+  passport.authenticate('local',
+    function(err, user, info) {
+      return err 
+        ? next(err)
+        : user
+          ? req.logIn(user, function(err) {
+              return err
+                ? next(err)
+                : res.redirect('/private');
+            })
+          : res.redirect('/');
+    }
+  )(req, res, next);
+};
 
-	user.save(function(err, result) {
-		if (err) return console.error(err);
-  		res.redirect('/success');
-	});
-}
+module.exports.logout = function(req, res) {
+  req.logout();
+  res.redirect('/');
+};
+
+module.exports.register = function(req, res, next) {
+  console.log(req.body);
+  var user = new User({ email: req.body.email, password: req.body.password});
+  user.save(function(err) {
+    return err
+      ? next(err)
+      : req.logIn(user, function(err) {
+        return err
+          ? next(err)
+          : res.redirect('/private');
+      });
+  });
+};
