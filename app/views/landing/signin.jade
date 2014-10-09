@@ -18,17 +18,16 @@ form(id="landing-form",
 		  name="login", 
 		  placeholder="Login/Email",
 		  ng-model="user.login",
-		  ng-class="{invalid: loginform.login.submitted && (loginform.login.$error.required || loginform.login.$invalid)}",
+		  ng-class="{invalid: loginform.$submitted && loginform.login.$invalid}",
 		  required)
 	input(class="landing-data", 
 		  type="password", 
 		  name="password", 
 		  placeholder="Password",
 		  ng-model="user.password",
-		  ng-class="{invalid: loginform.password.submitted && (loginform.password.$error.required || loginform.password.$invalid)}",
+		  ng-class="{invalid: loginform.$submitted && loginform.password.$invalid}",
 		  required)
 	button(class="landing-data", 
-		   type="submit",
-		   ng-click="signin()") Sign in
+		   type="submit") Sign in
 
 include footer.jade

@@ -17,6 +17,12 @@ module.exports = function(app, passport) {
 		failureFlash : true // allow flash messages
 	}));
 
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect : '/', // redirect to the secure profile section
+		failureRedirect : '/signin', // redirect back to the signup page if there is an error
+		failureFlash : true // allow flash messages
+	}));
+
 	/*router.post('/login', usersController.login);
 	router.get('/logout', usersController.logout);
 	router.post('/register',  usersController.register);*/

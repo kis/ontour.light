@@ -17,25 +17,24 @@ form(id="landing-form",
 		  type="email", 
 		  name="email", 
 		  placeholder="Email", 
-		  ng-model="user.email", 
-		  ng-class="{invalid: regform.email.submitted && (regform.email.$error.required || regform.email.$invalid)}",
+		  ng-model="user.email",
+		  ng-class="{invalid: regform.$submitted && regform.email.$invalid}",
 		  required)
 	input(class="landing-data", 
 		  type="password", 
 		  name="password", 
 		  placeholder="Password", 
 		  ng-model="user.password", 
-		  ng-class="{invalid: regform.password.submitted && (regform.password.$error.required || regform.  password.$invalid)}",
+		  ng-class="{invalid: regform.$submitted && regform.password.$invalid}",
 		  required)
 	input(class="landing-data", 
 		  type="password", 
 		  name="password_repeat", 
 		  placeholder="Repeat password", 
 		  ng-model="user.password_repeat", 
-		  ng-class="{invalid: regform.password_repeat.submitted && (regform.password_repeat.$error.required ||   regform.password_repeat.$invalid)}",
+		  ng-class="{invalid: regform.$submitted && regform.password_repeat.$invalid}",
 		  required)
 	button(class="landing-data", 
-		   type="submit",
-		   ng-click="signup()") Sign up
+		   type="submit") Sign up
 
 include footer.jade

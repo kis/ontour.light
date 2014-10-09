@@ -5,26 +5,23 @@ ontour.controller('LandingController', ['$scope', '$http', function ($scope, $ht
 	$scope.user = {};
 
 	$scope.submitRegistration = function() {
-		console.log($scope.user);
-
-		$http.post('/register', $scope.user).success(function(data) {
-			console.log('yeee');
-		});
+		if (!$scope.regform.$invalid) {
+			console.log($scope.user);
+			
+			$http.post('/register', $scope.user).success(function(data) {
+				// console.log(data);
+			});
+		}
 	};
 
 	$scope.submitLogin = function() {
-		console.log($scope.user);
-	};
+		if (!$scope.loginform.$invalid) {
+			console.log($scope.user);
 
-	$scope.signup = function() {
-		$scope.regform.email.submitted = true;
-		$scope.regform.password.submitted = true;
-		$scope.regform.password_repeat.submitted = true;
-	};
-
-	$scope.signin = function() {
-		$scope.loginform.login.submitted = true;
-		$scope.loginform.password.submitted = true;
+			$http.post('/login', $scope.user).success(function(data) {
+				// console.log(data);
+			});
+		}
 	};
 
 }]);
