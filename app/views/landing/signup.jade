@@ -32,6 +32,7 @@ form(id="landing-form",
 		  name="password_repeat", 
 		  placeholder="Repeat password", 
 		  ng-model="user.password_repeat", 
+		  password-repeat="password",
 		  ng-class="{invalid: regform.$submitted && regform.password_repeat.$invalid}",
 		  required)
 	button(class="landing-data", 
