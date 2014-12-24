@@ -10,6 +10,8 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
+
+    winston = require('winston'),
     
     configDB = require('./app/config/database.js');
 

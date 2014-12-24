@@ -1,10 +1,13 @@
 var User = require('../models/user');
 
 var passwordHash = require('password-hash'),
-	  passport = require('passport');
+	  passport = require('passport'),
+    winston = require('winston');
 
 module.exports.login = function(req, res, next) {
-  passport.authenticate('local',
+  winston.log('111');
+
+  passport.authenticate('local-login',
     function(err, user, info) {
       return err 
         ? next(err)

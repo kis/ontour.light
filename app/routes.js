@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
 	app.get('/success', controllers.render('landing/success'));
 	app.get('/about', controllers.render('landing/about'));
 
-	app.post('/register', passport.authenticate('local-signup', {
+	/*app.post('/register', passport.authenticate('local-signup', {
 		successRedirect : '/success', // redirect to the secure profile section
 		failureRedirect : '/signup', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
@@ -21,11 +21,11 @@ module.exports = function(app, passport) {
 		successRedirect : '/', // redirect to the secure profile section
 		failureRedirect : '/signin', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
-	}));
+	}));*/
 
-	/*router.post('/login', usersController.login);
-	router.get('/logout', usersController.logout);
-	router.post('/register',  usersController.register);*/
+	app.post('/login', controllers.users.login);
+	app.get('/logout', controllers.users.logout);
+	app.post('/register',  controllers.users.register);
 
 };
 
