@@ -1,10 +1,15 @@
 include head.jade
 
 section(id="landing-head")
-	a(href="/about") About Us
+	a(href="/welcome") Главная
+	a(id="sign-in", href="/signin") Войти
+	a(id="sign-up", href="/signup") Регистрация
+	a(id="try", href="/") Карта
 
 section(id="landing-actions")
-	div(class="landing-words") Follow your favorite band's <br/> shows / tours / festivals / local events
-	a(id="sign-in", href="/signin") Sign in
-	a(id="sign-up", href="/signup") Sign up
-	a(id="try", href="/") Taste it
+	div(class="landing-words") Следи за концертами и турами своих<br/> любимых групп
+	a(id="sign-in", href="/signin") Войти
+	a(id="sign-up", href="/signup") Регистрация
+	a(id="try", href="/") Карта
+
+include footer.jade

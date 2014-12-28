@@ -1,11 +1,10 @@
 include head.jade
 
 section(id="landing-head")
-	a(href="/welcome") Home
-	a(id="sign-in", href="/signin") Sign in
-	a(id="sign-up", href="/signup") Sign up
-	a(id="try", href="/") Taste it
-	a(href="/about") About Us
+	a(href="/welcome") Главная
+	a(id="sign-in", href="/signin") Войти
+	a(id="sign-up", href="/signup") Регистрация
+	a(id="try", href="/") Карта
 
 form(id="landing-form",
 	 name="loginform",
@@ -16,18 +15,18 @@ form(id="landing-form",
 	input(class="landing-data", 
 		  type="text", 
 		  name="login", 
-		  placeholder="Login/Email",
+		  placeholder="Логин/Email",
 		  ng-model="user.login",
 		  ng-class="{invalid: loginform.$submitted && loginform.login.$invalid}",
 		  required)
 	input(class="landing-data", 
 		  type="password", 
 		  name="password", 
-		  placeholder="Password",
+		  placeholder="Пароль",
 		  ng-model="user.password",
 		  ng-class="{invalid: loginform.$submitted && loginform.password.$invalid}",
 		  required)
 	button(class="landing-data", 
-		   type="submit") Sign in
+		   type="submit") Войти
 
 include footer.jade

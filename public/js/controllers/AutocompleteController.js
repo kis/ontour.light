@@ -16,9 +16,9 @@ define(['./module'], function(controllers) {
 		$scope.getAutocompleteData = function(searchValue) {
 			$scope.autocomplete.items = [];
 
-			if ($scope.menu.activeTab.title == 'artist') {
+			if ($scope.menu.activeTab.param == 'artist') {
 				$scope.getArtists(searchValue);
-			} else if ($scope.menu.activeTab.title == 'location') {
+			} else if ($scope.menu.activeTab.param == 'geo') {
 				$scope.getCities(searchValue);
 			}
 		};

@@ -6,7 +6,7 @@ define(['./module'], function(controllers) {
 
 		$scope.menu = {
 			activeTab: {
-				title: 'artist',
+				title: 'название группы / артиста',
 				param: 'artist'
 			},
 			searchValue: '',
@@ -14,13 +14,26 @@ define(['./module'], function(controllers) {
 			festivalsOnly: 0
 		};
 
-		$scope.tabs = [
+		$scope.tabTitles = [
 			{
-				title: 'artist',
+				name: 'Артист',
+				title: 'название группы / артиста',
 				param: 'artist'
 			},
 			{
-				title: 'location',
+				name: 'Город',
+				title: 'город / страну / континент',
+				param: 'geo'
+			}
+		];
+
+		$scope.tabs = [
+			{
+				title: 'название группы / артиста',
+				param: 'artist'
+			},
+			{
+				title: 'город / страну / континент',
 				param: 'geo'
 			}
 		];

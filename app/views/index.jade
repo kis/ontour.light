@@ -3,8 +3,8 @@ html
     head
         meta(name="viewport", content="initial-scale=1.0, user-scalable=no")
         meta(charset="utf-8")
-        title Ontour.im | Music Trip Planner
-        meta(name="description", content="Follow the shows of your favourite bands")
+        title Ontour.im | Музыкальный тур
+        meta(name="description", content="Запланируй свой музыкальный тур")
         
         link(rel="icon", type="image/png", href="img/ontour-ico.png")
         link(rel="stylesheet", href="css/normalize.css")
@@ -21,10 +21,10 @@ html
                      ng-class="{'slide-menu' : pages.page}",
                      class="fade-animation")
                     section
-                        nav(ng-repeat="tab in tabs",
+                        nav(ng-repeat="tab in tabTitles",
                             ng-click="switchTab(tab)", 
                             ng-class="{'active' : menu.activeTab.title === tab.title}",
-                            ng-bind="tab.title",
+                            ng-bind="tab.name",
                             ng-cloak,
                             class="tab")
 
@@ -36,7 +36,7 @@ html
                                   ng-cloak,
                                   class="search-field",
                                   name="searchValue",
-                                  placeholder="Enter {{menu.activeTab.title}}")
+                                  placeholder="Введите {{menu.activeTab.title}}")
                         
                         section(class="autocomplete")
                             div(ng-repeat="item in autocomplete.items",
@@ -56,12 +56,12 @@ html
                             ng-cloak,
                             class="tag")
                     
-                    a(class="search-button", ng-click="search(menu.searchValue)") Search
+                    a(class="search-button", ng-click="search(menu.searchValue)") Поиск
 
                     a(ng-click="setFestivalsOnly()",
                       ng-class="{'active' : menu.festivalsOnly === 1}",
-                      title="Festivals only",
-                      class="festivals") F
+                      title="Только фестивали",
+                      class="festivals") Ф
 
                 section(id="events", ng-controller="EventController")
                     div(class="event-item",
@@ -76,11 +76,11 @@ html
                     div(class="more",
                         ng-click="nextPage()",
                         ng-show="events",
-                        ng-cloak) {{pages.page}}/{{pages.totalPages}} More <i ng-cloak ng-show="searchStatus" class="fa fa-spinner fa-spin"></i>
+                        ng-cloak) {{pages.page}}/{{pages.totalPages}} Ещё <i ng-cloak ng-show="searchStatus" class="fa fa-spinner fa-spin"></i>
  
         section(id="map")
 
-        section(id="about") Ontour 2014 Kirill Stepkin
+        section(id="about") Ontour 2014 Идея и разработка Кирилла Стёпкина
 
         section(id="page-controls")
             a(href="/welcome")
